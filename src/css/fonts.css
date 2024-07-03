@@ -23,6 +23,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-arrow-right:before {
+  content: "\e90f";
+}
 .icon-search:before {
   content: "\e90d";
 }
@@ -47,7 +50,7 @@
 .icon-chevron-right:before {
   content: "\e903";
 }
-.icon-arrow-top:before {
+.icon-arrow-up:before {
   content: "\e905";
 }
 .icon-facebook:before {
@@ -71,4 +74,3 @@
 .icon-star:before {
   content: "\e90e";
 }
-
