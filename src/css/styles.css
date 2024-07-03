@@ -2,8 +2,11 @@
 @import url('./reset.css');
 @import url('./fonts.css');
 @import url('./variables.css');
+@import url('./main.css');
 @import url('./daily-sports.css');
 @import url('./exercises.css');
+@import url('./card_templates/category_card.css');
+@import url('./card_templates/exercises_card.css');
 @import url('./footer.css');
 @import url('./header.css');
 @import url('./hero.css');

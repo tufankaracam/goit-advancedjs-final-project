@@ -1,3 +1,20 @@
 :root {
   --white: #fff;
+  --primary-dark-color: #242424;
+  --primary-light-color: #F4F4F4;
+  --description-text-color: rgba(244, 244, 244, 0.60);
+
+  --filter-exercise-subtitle-color: rgba(36, 36, 36, 0.50);
+
+  --inactive-text-color: rgba(36, 36, 36, 0.60);
+  --card-subtitle-color: rgba(244, 244, 244, 0.4);
+
+  --rating-icon-color: #EEA10C;
+  --exercise-text-color: rgba(36, 36, 36, 0.40);
+
+  --border-color: rgba(36, 36, 36, 1);
+
+  --inactive-pagination-color: #D4D4D4;
+  --modal-overlay-color: rgba(4, 4, 4, 0.40);
+  --footer-policy-color: #C6CDD1;
 }

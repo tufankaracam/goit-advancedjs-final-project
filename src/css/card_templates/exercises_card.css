@@ -1,0 +1,238 @@
+.exercises-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 335px;
+  width: 100%;
+  padding: 16px;
+
+  background-color: var(--white);
+  border-radius: 15px;
+}
+
+.exercises-header,
+.exercises-workout-ratio,
+.exercises-ratio,
+.modal-exercise-info,
+.exercises-title,
+.exercises-info,
+.exercises-info-item {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.exercises-header,
+.exercises-workout-ratio {
+  flex-wrap: wrap;
+}
+
+.exercises-header {
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+.exercises-workout-ratio {
+  gap: 16px;
+}
+.exercises-workout {
+  text-align: center;
+  padding: 5px 8px;
+  border-radius: 15px;
+  border: 1px solid var(--primary-dark-color);
+
+  color: var(--primary-dark-color);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.exercises-ratio {
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+  color: var(--rating-icon-color);
+}
+
+.ratio-value {
+  padding-top: 1px;
+  color: var(--primary-dark-color);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.ratio-star {
+  padding: 2px;
+  fill: currentColor;
+}
+
+.trash-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-dark-color);
+}
+
+.trash-icon {
+  flex-shrink: 0;
+  fill: transparent;
+  stroke: currentColor;
+}
+
+.modal-exercise-info {
+  font-family: inherit;
+  color: var(--primary-dark-color);
+  max-width: 61px;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 14px;
+  line-height: 1.29;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-arrow {
+  stroke: currentColor;
+}
+
+.exercises-title {
+  color: var(--primary-light-color);
+  margin-bottom: 18px;
+  gap: 16px;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.run-icon {
+  flex-shrink: 0;
+  padding: 4px;
+  background-color: var(--border-color);
+  border-radius: 50%;
+  fill: currentColor;
+}
+
+.exercises-name {
+  color: var(--primary-dark-color);
+  font-size: 20px;
+  line-height: 1.0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.exercises-info {
+  gap: 10px;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.exercises-info-item {
+  gap: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.exercises-info-title {
+  color: var(--exercise-text-color);
+  white-space: nowrap;
+}
+
+.exercises-info-value {
+  color: var(--primary-dark-color);
+}
+
+.exercises-name,
+.exercises-info-value {
+  text-transform: capitalize;
+}
+
+.exercises-info-value.burned-calories,
+.exercises-info-value.body-part,
+.exercises-info-value.target {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.exercises-info-value.burned-calories {
+  text-transform: none;
+  max-width: 40px;
+  width: 100%;
+}
+
+.exercises-info-value.body-part {
+  max-width: 32px;
+  width: 100%;
+}
+
+.exercises-info-value.target {
+  max-width: 21px;
+  width: 100%;
+}
+
+  .content.exercises {
+    gap: 20px;
+  }
+
+@media screen and (min-width: 768px) { 
+  .exercises-container {
+    max-width: calc((100% - 16px) / 2);
+    width: 100%;
+  }
+
+  .exercises-title {
+    margin-bottom: 8px;
+}
+
+  .exercises-name {
+    max-width: 272px;
+  }
+
+  .exercises-info-value.burned-calories {
+    max-width: 42px;
+  }
+
+  .exercises-info-value.target {
+    max-width: 25px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .exercises-container {
+    max-width: calc((100% - 16px) / 2);
+    width: 100%;
+  }
+
+
+  .exercises-name {
+    max-width: 378px;
+  }
+
+  .exercises-info {
+    gap: 16px;
+  }
+
+  .exercises-info-value.burned-calories {
+    max-width: 80px;
+  }
+
+  .exercises-info-value.body-part {
+    max-width: 80px;
+  }
+
+  .exercises-info-value.target {
+    max-width: 60px;
+  }
+}
