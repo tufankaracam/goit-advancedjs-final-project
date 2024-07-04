@@ -1,0 +1,77 @@
+.favorites .main-layout {
+  display: flex;
+  flex-direction: column-reverse;
+  row-gap: 40px;
+}
+
+.favorites .daily-sport-section {
+  margin-top: 0;
+}
+
+.favorites .quote-img-favorite {
+  display: block;
+}
+
+.favorites .quote-img-mobile {
+  display: none;
+}
+
+.favorites .photo {
+  grid-column: 1;
+  grid-row: 3;
+  order: 3;
+}
+
+.favorites .daily-excercise {
+  grid-column: 1;
+  grid-row: 2;
+  order: 2;
+  height: auto;
+}
+
+.favorites .excercise-text {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .favorites .daily-sport-section {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 16px;
+  }
+
+  .favorites .quote-img-tab {
+    display: none;
+  }
+
+  .favorites .quote {
+    grid-column: 1 / -1;
+  }
+
+  .favorites .photo {
+    grid-column: 2;
+    grid-row: 2;
+    order: 3;
+    max-height: 200px;
+    width: 100%;
+  }
+  
+  .favorites .daily-excercise {
+    grid-column: 1;
+    grid-row: 2;
+    order: 2;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .favorites .main-layout {
+    flex-direction: row-reverse;
+  }
+
+  .favorites .daily-sport-section {
+    column-gap: 16px;
+  }
+
+  .favorites .quote-img-desk {
+    display: none;
+  }
+}

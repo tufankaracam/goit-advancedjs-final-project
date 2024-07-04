@@ -1,3 +1,7 @@
+.excercises {
+  flex: 1;
+}
+
 .content-filter-container {
   display: flex;
   flex-direction: column;

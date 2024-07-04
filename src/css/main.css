@@ -9,8 +9,8 @@ body {
 }
 
 .container {
-  max-width: 375px;
   margin: 0 auto;
+  max-width: 1440px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -64,14 +64,22 @@ body {
 
 @media screen and (min-width: 768px) {
     .container {
-        max-width: 768px;
         padding-left: 32px;
         padding-right: 32px;
     }
 }
 
 @media screen and (min-width: 1440px) {
-    .container {
-        max-width: 1440px;
-    }
+  .main-layout {
+    display: flex;
+    gap: 32px;
+  }
+
+  body:not(.favorites) .main-layout {
+    flex-direction: row-reverse;
+  }
+  
+  .container {
+      max-width: 1440px;
+  }
 }
