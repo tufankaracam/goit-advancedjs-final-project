@@ -4,23 +4,13 @@ export function createPagination({ params, totalPages, method }) {
   const pagination = document.querySelector('.pagination');
   let buttons = '';
 
-  const page = parseInt(params.page);
-  /* for (let i = 1; i <= totalPages; i++) {
-    buttons += `
-      <button class="button${
-        i == params.page ? ' active' : ''
-      }" data-page="${i}">
-        ${i}
-      </button>
-    `;
-  } */
+   const page = parseInt(params.page);
 
-  //left arrow
-  /* buttons += `
-      <button class="button" data-page="${page - 1}" ${page == 1 && 'disabled'}>
-        <
-      </button>
-    `; */
+  if (totalPages <= 1) {
+    pagination.innerHTML = '';
+    return;
+  }
+ 
 
   if (page > 3) {
     buttons += `

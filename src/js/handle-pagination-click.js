@@ -4,13 +4,15 @@ export function handlePaginationClick({ params, pagination, method }) {
 
   buttons.forEach(button => {
     button.addEventListener('click', e => {
-      currentPage = button.dataset.page;
-      method({
-        ...params,
-        page: currentPage,
-      });
-      buttons.forEach(button => button.classList.remove('active'));
-      button.classList.add('active');
+if (!button.classList.contains('active')) {
+        curentPage = button.dataset.page;
+        method({
+          ...params,
+          page: curentPage,
+        });
+        buttons.forEach(button => button.classList.remove('active'));
+        button.classList.add('active');
+      }
     });
   });
 }
