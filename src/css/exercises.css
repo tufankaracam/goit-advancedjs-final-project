@@ -52,6 +52,10 @@
   white-space: nowrap;
 }
 
+.js-title.is-hide {
+  display: none;
+}
+
 .js-title-slash.is-hide {
   display: none;
 }
