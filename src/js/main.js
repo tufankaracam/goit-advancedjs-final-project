@@ -46,6 +46,7 @@ searchForm.addEventListener('submit', async e => {
 
   const totalPages = await fetchExercises({
     [category]: catValue,
+    category,
     keyword,
     page,
   });
@@ -57,8 +58,10 @@ content.addEventListener('click', async e => {
   searchForm.classList.remove('is-hide');
   catValue = item.getAttribute('name');
   const category = document.querySelector('.btn-filter.active').dataset.exercise;
+  
   const totalPages = await fetchExercises({
     [category]: catValue,
+    category,
     keyword,
     page,
   });
