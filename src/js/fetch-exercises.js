@@ -6,7 +6,10 @@ import { createPagination } from './create-pagination';
 
 export async function fetchExercises(params) {
 
-  const { filter, muscles, keyword, page } = params;
+  const { category, ...searchparams } = params;
+  
+
+  const { keyword, page } = params;
   let filterParams = '?';
   const content = document.querySelector('.content');
 
@@ -25,7 +28,7 @@ export async function fetchExercises(params) {
   const titleExercise = document.querySelector('.js-title');
   const titleExerciseSlash = document.querySelector('.js-title-slash');
 
-  titleExercise.textContent = muscles;
+  titleExercise.textContent = category;
   titleExercise.classList.remove('is-hide');
   titleExerciseSlash.classList.remove('is-hide');
 
@@ -36,12 +39,7 @@ export async function fetchExercises(params) {
 
   if (data.totalPages > 1) {
     createPagination({
-      params: {
-        filter,
-        muscles,
-        keyword,
-        page,
-      },
+      params: searchparams,
       totalPages: data?.totalPages,
       method: fetchExercises,
     });
