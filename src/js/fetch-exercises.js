@@ -5,7 +5,8 @@ import { createExerciseMarkup } from './exercise-card-markup';
 import { createPagination } from './create-pagination';
 
 export async function fetchExercises(params) {
-  const {filter, muscles, keyword, page} = params;
+
+  const { filter, muscles, keyword, page } = params;
   let filterParams = '?';
   const content = document.querySelector('.content');
 
@@ -28,9 +29,7 @@ export async function fetchExercises(params) {
   titleExercise.classList.remove('is-hide');
   titleExerciseSlash.classList.remove('is-hide');
 
-  document.querySelector('[data-btn="muscles"]').classList.remove('active');
-  document.querySelector('[data-btn="bodypart"]').classList.add('active');
-
+  
 
   const pagination = document.querySelector('.pagination');
   pagination.innerHTML = '';
@@ -38,12 +37,13 @@ export async function fetchExercises(params) {
   if (data.totalPages > 1) {
     createPagination({
       params: {
-        filter, muscles, keyword, page
+        filter,
+        muscles,
+        keyword,
+        page,
       },
       totalPages: data?.totalPages,
       method: fetchExercises,
     });
   }
-
-  
 }

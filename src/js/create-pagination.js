@@ -4,13 +4,12 @@ export function createPagination({ params, totalPages, method }) {
   const pagination = document.querySelector('.pagination');
   let buttons = '';
 
-   const page = parseInt(params.page);
+  const page = parseInt(params.page);
 
   if (totalPages <= 1) {
     pagination.innerHTML = '';
     return;
   }
- 
 
   if (page > 3) {
     buttons += `
