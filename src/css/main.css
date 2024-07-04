@@ -35,7 +35,6 @@ body {
   color: var(--primary-dark-color);
   cursor: auto;
   height: 32px;
-  pointer-events: none;
   width: 32px;
 }
 
