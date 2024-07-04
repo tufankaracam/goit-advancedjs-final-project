@@ -2,8 +2,8 @@ import { fetchQuote } from './fetch-quote';
 import { getCurrentDate } from './get-current-date';
 
 function setQuote(author, quote) {
-  const quoteText = document.querySelector('.quote .text');
-  const quoteAuthor = document.querySelector('.quote .author');
+  const quoteText = document.querySelector('.quote-text');
+  const quoteAuthor = document.querySelector('.quote-author');
 
   if (quoteText && quoteAuthor) {
     quoteAuthor.innerHTML = author;

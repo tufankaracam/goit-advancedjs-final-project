@@ -1,0 +1,275 @@
+.modal-overlay {
+  font-family: "DM Sans", sans-serif;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(4, 4, 4, 0.4);
+}
+
+.modal-window {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  background: #242424;
+  left: 20px;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: calc(100% - 40px);
+  min-width: 335px;
+  padding: 40px 20px;
+  border-radius: 20px;
+}
+
+.close-button {
+  font-size: 12px;
+  padding: 7px;
+  color: #f4f4f4;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+}
+
+.exercise-wrapper {
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exercise-image {
+  opacity: 0.8;
+  border-radius: 12px;
+  max-width: 295px;
+}
+
+.exercise-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.exercise-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.exercise-header h2 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1em;
+  color: #f4f4f4;
+}
+
+.rating {
+  display: flex;
+  align-items: flex-start;
+  height: 18px;
+  gap: 2px;
+}
+
+.rating .icon-star {
+  color: #eea10c;
+}
+
+.rating .icon-star.empty {
+  color: rgba(244, 244, 244, 0.2);
+}
+
+.rating-value {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #f4f4f4;
+}
+
+.exercise-info {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  height: 120px;
+  width: 100%;
+  border-bottom: solid 1px rgba(244, 244, 244, 0.2);
+  border-top: solid 1px rgba(244, 244, 244, 0.2);
+}
+
+.details-column {
+  flex: 1 1 calc(25% - 20px);
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.details-title {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(244, 244, 244, 0.4);
+}
+
+.details-value {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.285em;
+  color: #f4f4f4;
+}
+
+.exercise-description {
+  font-size: 14px;
+  line-height: 1.285em;
+  color: rgba(244, 244, 244, 0.6);
+}
+
+.modal-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: center;
+}
+
+.add-favorites-btn,
+.remove-favorites-btn {
+  display: flex;
+  height: 42px;
+  max-width: 295px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 30px;
+  padding: 12px 24px;
+  background: #f4f4f4;
+  font-size: 14px;
+  border: none;
+}
+
+.add-favorites-btn:hover,
+.remove-favorites-btn:hover {
+  background: none;
+  border: 1px solid #f4f4f4;
+  color: #f4f4f4;
+}
+
+.icon-heart,
+.icon-trash {
+  font-size: 16px;
+}
+
+.give-rating-btn {
+  background: none;
+  border: 1px solid #f4f4f4;
+  height: 42px;
+  width: 100%;
+  max-width: 295px;
+  font-size: 14px;
+  color: #f4f4f4;
+  border-radius: 30px;
+  padding: 12px 24px;
+}
+
+.give-rating-btn:hover {
+  color: #242424;
+  background: #f4f4f4;
+}
+
+/* Tablet start */
+
+@media screen and (min-width: 768px) {
+
+  .modal-window {
+    max-width: 704px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 16px);
+    padding: 32px;
+    gap: 64px;
+  }
+
+  .close-button {
+    font-size: 14px;
+    top: 16px;
+    right: 16px;
+  }
+
+  .exercise-wrapper {
+    flex-direction: row;
+    align-items: flex-start
+  }
+
+  .exercise-image {
+    max-width: 270px;
+  }
+
+  .exercise-details {
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .exercise-header {
+    gap: 8px;
+  }
+
+  .exercise-header h2 {
+    font-size: 24px;
+    line-height: 1.333em;
+  }
+
+  .exercise-info {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    gap: 16px;
+    height: 112px;
+  }
+
+  .modal-actions {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .add-favorites-btn,
+  .remove-favorites-btn {
+    width: 194px;
+    height: 48px;
+  }
+
+  .icon-heart,
+  .icon-trash {
+    font-size: 18px;
+  }
+
+  .remove-favorites-btn {
+    width: 242px;
+  }
+
+  .give-rating-btn {
+    width: 141px;
+    height: 48px;
+  }
+
+}
+
+/* Tablet end */
+
+@media screen and (min-width: 1440px) {
+  .modal-window {
+    max-width: 708px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+

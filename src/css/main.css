@@ -4,12 +4,13 @@ html {
 
 body {
   background-color: var(--primary-light-color);
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
 }
 
 .container {
-  max-width: 375px;
   margin: 0 auto;
+  max-width: 1440px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -38,16 +39,47 @@ body {
   width: 32px;
 }
 
+.logo {
+  width: 132px;
+  height: 24px;
+}
+
+.social {
+  display: flex;
+  gap: 12px;
+}
+
+.social-link {
+  border-radius: 10px;
+  border: 1px solid rgba(244, 244, 244, 0.10);
+  display: inline-flex;
+  padding: 8px;
+  align-items: center;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+}
+
 @media screen and (min-width: 768px) {
     .container {
-        max-width: 768px;
         padding-left: 32px;
         padding-right: 32px;
     }
 }
 
 @media screen and (min-width: 1440px) {
-    .container {
-        max-width: 1440px;
-    }
+  .main-layout {
+    display: flex;
+    gap: 32px;
+  }
+
+  body:not(.favorites) .main-layout {
+    flex-direction: row-reverse;
+  }
+  
+  .container {
+      max-width: 1440px;
+  }
 }

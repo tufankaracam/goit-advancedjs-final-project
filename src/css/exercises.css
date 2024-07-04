@@ -1,3 +1,7 @@
+.excercises {
+  flex: 1;
+}
+
 .content-filter-container {
   display: flex;
   flex-direction: column;
@@ -138,8 +142,8 @@
   transition-timing-function: ease-in;
 }
 
-.icon-search,
-.icon-x {
+.btn-search-wrapper .icon-search,
+.btn-search-wrapper .icon-x {
   display: block;
   position: absolute;
   top: 0;
@@ -152,7 +156,7 @@
   stroke: currentColor;
 }
 
-.icon-x {
+.btn-search-wrappe .icon-x {
   padding: 4px;
   fill: currentColor;
   stroke: currentColor;
