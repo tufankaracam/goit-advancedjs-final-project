@@ -1,6 +1,7 @@
 import { createPagination } from './create-pagination';
 import { fetchAndSetQuote } from './fetch-and-set-quote';
 import { fetchCategories } from './fetch-categories';
+import { handleFiltersClick } from './handle-filters-click';
 import { fetchExercises } from './fetch-exercises';
 
 const searchForm = document.querySelector('.form-search-exersises');
@@ -16,11 +17,19 @@ let muscles = '';
 let keyword = '';
 
 document.addEventListener('DOMContentLoaded', async () => {
+
+  const method = fetchCategories;
   fetchAndSetQuote();
-  const totalPages = await fetchCategories({
+  // if (isExcercisesPage) {
+  //   method = fetchExcercises;
+  // }
+  handleFiltersClick(method);
+
+  const totalPages = await method({
     filter,
     page,
   });
+
 
   if (totalPages > 1) {
     createPagination({
@@ -87,4 +96,5 @@ filterTabs.addEventListener('click', async e => {
       method: fetchCategories,
     });
   }
+
 });

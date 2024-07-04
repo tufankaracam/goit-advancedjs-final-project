@@ -4,6 +4,7 @@ html {
 
 body {
   background-color: var(--primary-light-color);
+  font-family: "DM Sans", sans-serif;
 }
 
 .container {
@@ -34,7 +35,6 @@ body {
   color: var(--primary-dark-color);
   cursor: auto;
   height: 32px;
-  pointer-events: none;
   width: 32px;
 }
 

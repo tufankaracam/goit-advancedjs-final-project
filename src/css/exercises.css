@@ -205,6 +205,7 @@
 
 .btn-filter.active {
   color: var(--primary-dark-color);
+  cursor: auto;
 
   &::after {
     opacity: 1;
