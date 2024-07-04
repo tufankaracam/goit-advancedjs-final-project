@@ -17,8 +17,8 @@ export async function handleFiltersClick(method) {
         });
 
         createPagination({
-          filter: button.dataset.category.replace(' ', '+'),
-          page: 1,
+          params:{filter: button.dataset.category.replace(' ', '+'),
+          page: 1},
           totalPages,
           method: method,
         });
