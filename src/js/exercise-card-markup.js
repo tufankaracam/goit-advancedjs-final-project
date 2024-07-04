@@ -1,9 +1,9 @@
 /**create markup for exercises cards
  * if isFavorite is true - will be create card in Favorite page
  * if isFavorite is false - will be create card in the Home page
- * 
- * @param {object} data 
- * @param {boolean} isFavorite 
+ *
+ * @param {object} data
+ * @param {boolean} isFavorite
  * @returns {string}
  */
 export const createExerciseMarkup = (data, isFavorite = false) => {
@@ -15,7 +15,7 @@ export const createExerciseMarkup = (data, isFavorite = false) => {
                 <div class="exercises-header">
                     <div class="exercises-workout-ratio">
                         <div class="exercises-workout">WORKOUT</div>
-                        ${isFavorite ? toggleExercisesCard() : toggleExercisesCard(rating)} 
+                        ${isFavorite ? toggleExercisesCard() : toggleExercisesCard(rating)}
                     </div>
                     <button class="modal-exercise-info" type="button" id="${_id}">
                         <span>Start</span>
@@ -48,17 +48,17 @@ export const createExerciseMarkup = (data, isFavorite = false) => {
         </div>`).join('');
       }
 }
-    
-    
-    
 
-/**choose markup for exercise's card depend on: 
+
+
+
+/**choose markup for exercise's card depend on:
  *  if it's the Favorite page or Home
  *  and
  * -if rating is null - will be create trash button
  * -if rating is not null - will be create ratio
- * 
- * @param {number} rating 
+ *
+ * @param {number} rating
  * @returns {string}
  */
 function toggleExercisesCard(rating = null) {
@@ -67,7 +67,7 @@ function toggleExercisesCard(rating = null) {
       <p class="ratio-value">${convertRating(rating)}</p>
       <svg class="ratio-star" width="18" height="18">
           <use href="./img/icons.svg#icon-star"></use>
-      </svg> 
+      </svg>
       </div>`;
   }
   return `<button class="trash-btn js-delete-favorite" type="button">
@@ -78,8 +78,8 @@ function toggleExercisesCard(rating = null) {
 }
 
 /**convert rating to 0.0 template
- * 
- * @param {number} rating 
+ *
+ * @param {number} rating
  * @returns {string}
  */
 function convertRating(rating) {
