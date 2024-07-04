@@ -4,6 +4,7 @@ html {
 
 body {
   background-color: var(--primary-light-color);
+  font-family: "DM Sans", sans-serif;
 }
 
 .container {
