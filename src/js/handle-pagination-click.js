@@ -1,13 +1,13 @@
-export function handlePaginationClick({ filter, page, pagination, method }) {
+export function handlePaginationClick({ params, pagination, method }) {
   const buttons = Array.from(pagination.querySelectorAll('.button'));
-  let curentPage = page;
+  let currentPage = 1;
 
   buttons.forEach(button => {
     button.addEventListener('click', e => {
-      curentPage = button.dataset.page;
+      currentPage = button.dataset.page;
       method({
-        filter,
-        page: curentPage,
+        ...params,
+        page: currentPage,
       });
       buttons.forEach(button => button.classList.remove('active'));
       button.classList.add('active');
