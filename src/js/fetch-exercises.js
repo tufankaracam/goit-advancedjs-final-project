@@ -3,13 +3,19 @@ import { constants } from './constants';
 
 import { createExerciseMarkup } from './exercise-card-markup';
 import { createPagination } from './create-pagination';
+import { showSearchForm } from './show-search-form';
 
 export async function fetchExercises(params) {
-
   const { category, ...searchparams } = params;
-  
 
-  const { keyword, page } = params;
+  
+  const keyword = document.querySelector('.input-search-exersises').value;
+  searchparams.keyword = keyword;
+  
+  showSearchForm(true);
+
+  console.log('searchparams', searchparams)
+
   let filterParams = '?';
   const content = document.querySelector('.content');
 
@@ -31,8 +37,6 @@ export async function fetchExercises(params) {
   titleExercise.textContent = category;
   titleExercise.classList.remove('is-hide');
   titleExerciseSlash.classList.remove('is-hide');
-
-  
 
   const pagination = document.querySelector('.pagination');
   pagination.innerHTML = '';

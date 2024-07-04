@@ -4,6 +4,8 @@ export function createPagination({ params, totalPages, method }) {
   const pagination = document.querySelector('.pagination');
   let buttons = '';
 
+  console.log(params)
+
   const page = parseInt(params.page);
 
   if (totalPages <= 1) {

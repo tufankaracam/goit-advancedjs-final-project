@@ -4,6 +4,8 @@ import { fetchCategories } from './fetch-categories';
 import { handleFiltersClick } from './handle-filters-click';
 import { fetchExercises } from './fetch-exercises';
 import { openModal } from './exercise-modal';
+import { setExerciseTitle } from './set-exercise-title';
+
 
 const searchForm = document.querySelector('.form-search-exersises');
 const content = document.querySelector('.content');
@@ -15,7 +17,6 @@ let catValue = '';
 let keyword = '';
 
 document.addEventListener('DOMContentLoaded', async () => {
-
   const method = fetchCategories;
   fetchAndSetQuote();
   // if (isExcercisesPage) {
@@ -27,7 +28,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     filter,
     page,
   });
-
 
   if (totalPages > 1) {
     createPagination({
@@ -43,7 +43,8 @@ searchForm.addEventListener('submit', async e => {
   const input = e.target.querySelector('.input-search-exersises');
   keyword = input.value;
 
-  const category = document.querySelector('.btn-filter.active').dataset.exercise
+  const category =
+    document.querySelector('.btn-filter.active').dataset.exercise;
 
   const totalPages = await fetchExercises({
     [category]: catValue,
@@ -56,14 +57,13 @@ searchForm.addEventListener('submit', async e => {
 content.addEventListener('click', async e => {
   const item = e.target.closest('.category-wrap');
   if (!item) return;
-  searchForm.classList.remove('is-hide');
   catValue = item.getAttribute('name');
-  const category = document.querySelector('.btn-filter.active').dataset.exercise;
-  
+  setExerciseTitle(catValue);
+  const category =
+    document.querySelector('.btn-filter.active').dataset.exercise;
   const totalPages = await fetchExercises({
     [category]: catValue,
     category,
-    keyword,
     page,
   });
    attachExerciseModalListeners()
