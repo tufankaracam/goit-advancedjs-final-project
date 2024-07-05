@@ -1,9 +1,11 @@
 import { constants } from './constants';
 
-const addFavoritesButton = document.getElementById('addFavoritesButton');
-const removeFavoritesButton = document.getElementById('removeFavoritesButton');
+let addFavoritesButton;
+let removeFavoritesButton;
 
 export function initFavoritesButtons() {
+  addFavoritesButton = document.getElementById('addFavoritesButton');
+  removeFavoritesButton = document.getElementById('removeFavoritesButton');
   addFavoritesButton.addEventListener('click', addToFavorites);
   removeFavoritesButton.addEventListener('click', removeFromFavorites);
   const favorites = JSON.parse(localStorage.getItem(constants.FAV_KEY)) ?? [];

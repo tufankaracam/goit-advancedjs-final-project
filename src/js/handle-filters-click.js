@@ -16,17 +16,18 @@ export async function handleFiltersClick(method) {
       if (!button.classList.contains('active')) {
         filterButtons.forEach(button => button.classList.remove('active'));
         button.classList.add('active');
-      }
-      const totalPages = await method({
-        filter: button.dataset.category.replace(' ', '+'),
-        page: 1,
-      });
 
-      createPagination({
-        params: { filter: button.dataset.category.replace(' ', '+'), page: 1 },
-        totalPages,
-        method: method,
-      });
+        const totalPages = await method({
+          filter: button.dataset.category.replace(' ', '+'),
+          page: 1,
+        });
+  
+        createPagination({
+          params: { filter: button.dataset.category.replace(' ', '+'), page: 1 },
+          totalPages,
+          method: method,
+        });
+      }
     });
   });
 }

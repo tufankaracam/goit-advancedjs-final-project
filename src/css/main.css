@@ -68,28 +68,22 @@ body {
   margin-bottom: 32px;
 }
 
-.loader,
-.loader-start {
-  width: 32px;
-  height: 32px;
-  border-width: 3px;
+.loader {
+  width: 40px;
+  height: 40px;
+  border-width: 5px;
   border-style: dashed solid solid dotted;
   border-color: var(--card-subtitle-color) var(--primary-dark-color) var(--footer-policy-color);
   border-radius: 50%;
   display: inline-block;
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  margin-right: 10px;
-}
-
-.loader-start {
-  display: block;
-  margin: 10px auto;
-  text-align: center;
-  width: 44px;
-  height: 44px;
-}
+  z-index: 10;
+} 
 
 @keyframes rotation {
   0% {

@@ -4,6 +4,7 @@ import { fetchCategories } from './fetch-categories';
 import { handleFiltersClick } from './handle-filters-click';
 import { fetchExercises } from './fetch-exercises';
 import { openModal } from './exercise-modal';
+import { initIconPathObserver } from './icon-path-updater';
 
 import { setExerciseTitle } from './set-exercise-title';
 import './handle-email-form';
@@ -11,14 +12,13 @@ import './handle-email-form';
 const searchForm = document.querySelector('.form-search-exersises');
 const content = document.querySelector('.content');
 const filterTabs = document.querySelector('.list-filter-exersises');
-const loader = document.querySelector('.loader-start');
-loader.style.display = 'block';
 
 const filter = 'Muscles';
 const page = 1;
 let catValue = '';
 
 document.addEventListener('DOMContentLoaded', async () => {
+  initIconPathObserver();
   loader.style.display = 'none';
 
   fetchAndSetQuote();
@@ -44,8 +44,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 searchForm.addEventListener('submit', async e => {
   e.preventDefault();
 
-  await fetchExercises({
-    value: catValue,
+  const category = document.querySelector('.btn-filter.active').dataset.exercise;
+
+  const totalPages = await fetchExercises({
+    [category]: catValue,
+    category,
+    keyword,
     page,
   });
   attachExerciseModalListeners();
@@ -64,8 +68,9 @@ searchForm.addEventListener('reset', async e => {
 content.addEventListener('click', async e => {
   const item = e.target.closest('.category-wrap');
   if (!item) return;
-
+  searchForm.classList.remove('is-hide');
   catValue = item.getAttribute('name');
+
   setExerciseTitle(catValue);
   await fetchExercises({
     value: catValue,
@@ -77,6 +82,7 @@ content.addEventListener('click', async e => {
       .querySelector('.filter-title')
       .scrollIntoView({ behavior: 'smooth' });
   }
+
 });
 
 document.querySelector('.toggle-btn-home').classList.add('active');
