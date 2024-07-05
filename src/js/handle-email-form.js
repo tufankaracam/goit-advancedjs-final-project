@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'Error',
         message: 'Please enter a valid email address.',
       });
+
       return;
     }
 
@@ -23,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Success',
       message: 'You have successfully subscribed!',
     });
+
+    console.log('SENT TO THE SERVER:', email);
 
     form.reset();
   });
