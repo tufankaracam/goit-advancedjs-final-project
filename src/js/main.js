@@ -72,7 +72,6 @@ content.addEventListener('click', async e => {
   attachExerciseModalListeners();
 });
 
-
 function attachExerciseModalListeners() {
   const modalExerciseInfoButtons = document.querySelectorAll(
     '.modal-exercise-info'
