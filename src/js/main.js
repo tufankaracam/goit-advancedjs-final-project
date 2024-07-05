@@ -8,7 +8,6 @@ import { openModal } from './exercise-modal';
 import { setExerciseTitle } from './set-exercise-title';
 import './handle-email-form';
 
-
 const searchForm = document.querySelector('.form-search-exersises');
 const content = document.querySelector('.content');
 const filterTabs = document.querySelector('.list-filter-exersises');
@@ -41,6 +40,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 searchForm.addEventListener('submit', async e => {
   e.preventDefault();
+
+  await fetchExercises({
+    value: catValue,
+    page,
+  });
+  attachExerciseModalListeners();
+});
+
+searchForm.addEventListener('reset', async e => {
+  e.preventDefault();
+  e.target.querySelector('.input-search-exersises').value = '';
 
   await fetchExercises({
     value: catValue,

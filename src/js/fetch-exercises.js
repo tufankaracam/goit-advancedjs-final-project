@@ -25,8 +25,6 @@ export async function fetchExercises(params) {
     filterParams += `${key}=${value}&`;
   }
 
-  console.log(filterParams);
-
   const { data } = await axios({
     method: 'get',
     url: `${constants.domen}/exercises${filterParams}limit=${
