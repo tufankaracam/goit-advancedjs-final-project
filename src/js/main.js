@@ -4,7 +4,10 @@ import { fetchCategories } from './fetch-categories';
 import { handleFiltersClick } from './handle-filters-click';
 import { fetchExercises } from './fetch-exercises';
 import { openModal } from './exercise-modal';
+
 import { setExerciseTitle } from './set-exercise-title';
+import './handle-email-form';
+
 
 const searchForm = document.querySelector('.form-search-exersises');
 const content = document.querySelector('.content');
