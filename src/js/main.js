@@ -3,8 +3,8 @@ import { fetchAndSetQuote } from './fetch-and-set-quote';
 import { fetchCategories } from './fetch-categories';
 import { handleFiltersClick } from './handle-filters-click';
 import { fetchExercises } from './fetch-exercises';
-import { openModal } from './exercise-modal';
 import { initIconPathObserver } from './icon-path-updater';
+import { attachExerciseModalListeners } from './modal-listener';
 import { calcScrollValue } from './scroll-to-top';
 
 import { setExerciseTitle } from './set-exercise-title';
@@ -12,10 +12,7 @@ import './handle-email-form';
 
 const searchForm = document.querySelector('.form-search-exersises');
 const content = document.querySelector('.content');
-const filterTabs = document.querySelector('.list-filter-exersises');
 const scrollProgress = document.querySelector('.scroll-to-top');
-const loader = document.querySelector('.loader-start');
-loader.style.display = 'block';
 
 const filter = 'Muscles';
 const page = 1;
@@ -23,7 +20,6 @@ let catValue = '';
 
 document.addEventListener('DOMContentLoaded', async () => {
   initIconPathObserver();
-  loader.style.display = 'none';
 
   fetchAndSetQuote();
   handleFiltersClick(fetchCategories);
@@ -87,15 +83,6 @@ content?.addEventListener('click', async e => {
 
 document.querySelector('.toggle-btn-home').classList.add('active');
 document.querySelector('.toggle-btn-favorites').classList.remove('active');
-
-function attachExerciseModalListeners() {
-  const modalExerciseInfoButtons = document.querySelectorAll('.modal-exercise-info');
-  modalExerciseInfoButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      openModal(button.id);
-    });
-  });
-}
 
 scrollProgress.addEventListener("click", () => {
   document.documentElement.scrollTop = 0;

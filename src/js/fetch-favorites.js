@@ -2,6 +2,7 @@ import axios from 'axios';
 import { constants } from './constants';
 import { createExerciseMarkup } from './exercise-card-markup';
 import { createPagination } from './create-pagination';
+import { attachExerciseModalListeners } from './modal-listener';
 
 export async function fetchFavorites(params) {
   const { data } = await axios({
@@ -26,6 +27,7 @@ export async function fetchFavorites(params) {
         method: fetchFavorites,
       });
     }
+    attachExerciseModalListeners();
   } else {
     document.querySelector('.content').innerHTML = '';
     document.querySelector('.pagination').innerHTML = '';
