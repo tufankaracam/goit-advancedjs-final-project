@@ -7,7 +7,7 @@ export function showToast({ type, title, message, position = 'topRight' }) {
       iziToast.error({
         title,
         message,
-        position
+        position,
       });
       break;
     case 'success':
@@ -21,7 +21,7 @@ export function showToast({ type, title, message, position = 'topRight' }) {
       iziToast.warning({
         title,
         message,
-        position
+        position,
       });
       break;
   }

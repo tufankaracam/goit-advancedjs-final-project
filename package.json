@@ -8,11 +8,13 @@
     "build": "vite build --base=/goit-advancedjs-final-project/",
     "preview": "vite preview",
     "serve": "vite preview",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write ."
   },
   "devDependencies": {
     "gh-pages": "^6.1.1",
     "glob": "^8.1.0",
+    "prettier": "^3.3.2",
     "vite": "^4.5.2"
   },
   "author": "Alex Kydanov <a.kidanov@gmail.com>",

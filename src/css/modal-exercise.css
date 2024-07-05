@@ -1,5 +1,5 @@
 .modal-overlay {
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -187,7 +187,6 @@
 /* Tablet start */
 
 @media screen and (min-width: 768px) {
-
   .modal-window {
     max-width: 704px;
     top: 50%;
@@ -206,7 +205,7 @@
 
   .exercise-wrapper {
     flex-direction: row;
-    align-items: flex-start
+    align-items: flex-start;
   }
 
   .exercise-image {
@@ -258,7 +257,6 @@
     width: 141px;
     height: 48px;
   }
-
 }
 
 /* Tablet end */
@@ -272,4 +270,3 @@
 .hidden {
   display: none;
 }
-

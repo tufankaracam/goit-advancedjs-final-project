@@ -1,7 +1,8 @@
 /** fonts **/
 @font-face {
   font-family: 'icomoon';
-  src: url('../fonts/icomoon.woff2') format('woff2'),
+  src:
+    url('../fonts/icomoon.woff2') format('woff2'),
     url('../fonts/icomoon.woff') format('woff');
   font-weight: normal;
   font-style: normal;

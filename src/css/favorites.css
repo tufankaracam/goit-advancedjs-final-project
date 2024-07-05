@@ -54,7 +54,7 @@
     max-height: 200px;
     width: 100%;
   }
-  
+
   .favorites .daily-excercise {
     grid-column: 1;
     grid-row: 2;

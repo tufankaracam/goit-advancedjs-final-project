@@ -17,7 +17,6 @@
 .footer .social-link:hover {
   background-color: var(--primary-light-color);
 
-
   .social-icon {
     fill: var(--primary-dark-color);
   }

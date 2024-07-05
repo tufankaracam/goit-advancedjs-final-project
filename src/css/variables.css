@@ -1,22 +1,22 @@
 :root {
   --white: #fff;
   --primary-dark-color: #242424;
-  --primary-light-color: #F4F4F4;
-  --description-text-color: rgba(244, 244, 244, 0.60);
+  --primary-light-color: #f4f4f4;
+  --description-text-color: rgba(244, 244, 244, 0.6);
 
-  --filter-exercise-subtitle-color: rgba(36, 36, 36, 0.50);
+  --filter-exercise-subtitle-color: rgba(36, 36, 36, 0.5);
 
-  --inactive-text-color: rgba(36, 36, 36, 0.60);
+  --inactive-text-color: rgba(36, 36, 36, 0.6);
   --card-subtitle-color: rgba(244, 244, 244, 0.4);
 
-  --rating-icon-color: #EEA10C;
-  --exercise-text-color: rgba(36, 36, 36, 0.40);
+  --rating-icon-color: #eea10c;
+  --exercise-text-color: rgba(36, 36, 36, 0.4);
 
   --border-color: rgba(36, 36, 36, 1);
   --overlay-category-color: rgba(17, 17, 17, 0.5);
 
-  --inactive-pagination-color: #D4D4D4;
-  --modal-overlay-color: rgba(4, 4, 4, 0.40);
-  --footer-policy-color: #C6CDD1;
-  --light-grey: rgba(244, 244, 244, 0.60);
+  --inactive-pagination-color: #d4d4d4;
+  --modal-overlay-color: rgba(4, 4, 4, 0.4);
+  --footer-policy-color: #c6cdd1;
+  --light-grey: rgba(244, 244, 244, 0.6);
 }

@@ -7,8 +7,7 @@ import { showSearchForm } from './show-search-form';
 import { showToast } from './toast';
 
 export async function fetchExercises(params) {
-  const category =
-    document.querySelector('.btn-filter.active').dataset.exercise;
+  const category = document.querySelector('.btn-filter.active').dataset.exercise;
 
   if (params?.value) {
     params[category] = params?.value;
@@ -30,9 +29,7 @@ export async function fetchExercises(params) {
   try {
     const { data } = await axios({
       method: 'get',
-      url: `${constants.domen}/exercises${filterParams}limit=${
-        window.innerWidth < 768 ? 8 : 10
-      }`,
+      url: `${constants.domen}/exercises${filterParams}limit=${window.innerWidth < 768 ? 8 : 10}`,
       responseType: 'json',
     });
 
@@ -52,9 +49,9 @@ export async function fetchExercises(params) {
     showToast({
       type: 'error',
       title: 'Server error',
-      message: 'Sorry, the exercises information was not retrieved from the server. Please refresh the page'
-  });
+      message: 'Sorry, the exercises information was not retrieved from the server. Please refresh the page',
+    });
   } finally {
-     loader.style.display = 'none';
+    loader.style.display = 'none';
   }
 }

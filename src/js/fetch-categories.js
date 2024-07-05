@@ -16,9 +16,7 @@ export async function fetchCategories(params) {
   try {
     const response = await axios({
       method: 'get',
-      url: `${constants.domen}/filters${filterParams}limit=${
-        window.innerWidth < 768 ? 9 : 12
-      }`,
+      url: `${constants.domen}/filters${filterParams}limit=${window.innerWidth < 768 ? 9 : 12}`,
       responseType: 'json',
     });
 
@@ -28,8 +26,8 @@ export async function fetchCategories(params) {
     showToast({
       type: 'error',
       title: 'Server error',
-      message: 'Sorry, the category information was not retrieved from the server. Please refresh the page'
-  });
+      message: 'Sorry, the category information was not retrieved from the server. Please refresh the page',
+    });
   } finally {
     loader.style.display = 'none';
   }

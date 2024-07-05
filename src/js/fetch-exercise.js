@@ -16,8 +16,8 @@ export async function fetchExercise(id) {
     showToast({
       type: 'error',
       title: 'Server error',
-      message: 'Sorry, the exercise information was not retrieved from the server. Please refresh the page'
-  });
+      message: 'Sorry, the exercise information was not retrieved from the server. Please refresh the page',
+    });
   } finally {
     loader.style.display = 'none';
   }
