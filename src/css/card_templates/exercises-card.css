@@ -114,12 +114,8 @@
   text-overflow: ellipsis;
 }
 
-.run-icon {
-  flex-shrink: 0;
-  padding: 4px;
-  background-color: var(--border-color);
-  border-radius: 50%;
-  fill: currentColor;
+.exercises-title .circle-icon {
+  background-color: var(--primary-dark-color);
 }
 
 .exercises-name {

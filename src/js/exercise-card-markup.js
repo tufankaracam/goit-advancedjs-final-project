@@ -26,9 +26,7 @@ export const createExerciseMarkup = (data, isFavorite = false) => {
                     </button>
                 </div>
                 <div class="exercises-title">
-                    <svg class="run-icon" width="24" height="24">
-                        <use href="/images/icons.svg#icon-run"></use>
-                    </svg>
+                    <span class="icon-runner circle-icon"></span>
                     <p class="exercises-name">${name}</p>
                 </div>
                 <div class="exercises-info">
