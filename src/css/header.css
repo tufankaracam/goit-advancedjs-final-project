@@ -40,6 +40,10 @@ body {
   height: 30px;
 }
 
+.menu-toggle .icon-x {
+  color: var(--primary-light-color)
+}
+
 .menu-toggle .line {
   background-color: var(--primary-dark-color);
   display: block;
