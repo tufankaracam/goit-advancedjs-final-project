@@ -25,11 +25,11 @@ export async function fetchCategories(params) {
     content.innerHTML = createCategoryMarkup(response.data.results);
     return response.data.totalPages;
   } catch (error) {
-    showToast(
-      'error',
-      'Server error',
-      'Sorry, the category information was not retrieved from the server. Please refresh the page'
-    );
+    showToast({
+      type: 'error',
+      title: 'Server error',
+      message: 'Sorry, the category information was not retrieved from the server. Please refresh the page'
+  });
   } finally {
     loader.style.display = 'none';
   }

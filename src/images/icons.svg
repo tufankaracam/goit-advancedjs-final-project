@@ -55,5 +55,14 @@
       <path d="M107.323 16.7V7.3L109.623 5H116.583L118.843 7.26V9.4H116.123V8.26L115.183 7.32H111.063L110.043 8.34V15.66L111.063 16.68H115.223L116.203 15.7V13.52H113.203V11.2H118.843V16.7L116.543 19H109.623L107.323 16.7Z" />
       <path d="M123.828 13.28L118.848 5H121.828L125.168 10.74H125.208L128.548 5H131.528L126.548 13.28V19H123.828V13.28Z" />
     </symbol>
+    <symbol id="icon-burger" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 13.333h-24"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 8h-24"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 18.667h-24"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 24h-24"></path>
+    </symbol>
+    <symbol id="icon-cross" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M22.667 9.333l-13.333 13.333M9.333 9.333l13.333 13.333"></path>
+    </symbol>
   </defs>
 </svg>
