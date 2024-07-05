@@ -12,7 +12,9 @@ export async function fetchCategories(params) {
 
   const { data } = await axios({
     method: 'get',
-    url: `${constants.domen}/filters${filterParams}limit=12`,
+    url: `${constants.domen}/filters${filterParams}limit=${
+      window.innerWidth < 768 ? 9 : 12
+    }`,
     responseType: 'json',
   });
 

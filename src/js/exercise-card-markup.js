@@ -7,15 +7,28 @@
  * @returns {string}
  */
 export const createExerciseMarkup = (data, isFavorite = false) => {
-    if (data.length === 0) {
-        return `<p class="not-found-message">No results found.</p>`;
-      } else {
-        return data.map(({ _id, name, burnedCalories, rating, target, time, bodyPart
+  if (data.length === 0) {
+    return `<p class="not-found-message">No results found.</p>`;
+  } else {
+    return data
+      .map(
+        ({
+          _id,
+          name,
+          burnedCalories,
+          rating,
+          target,
+          time,
+          bodyPart,
         }) => `<div class="exercises-container">
                 <div class="exercises-header">
                     <div class="exercises-workout-ratio">
                         <div class="exercises-workout">WORKOUT</div>
-                        ${isFavorite ? toggleExercisesCard() : toggleExercisesCard(rating)}
+                        ${
+                          isFavorite
+                            ? toggleExercisesCard()
+                            : toggleExercisesCard(rating)
+                        }
                     </div>
                     <button class="modal-exercise-info" type="button" id="${_id}">
                         <span>Start</span>
@@ -45,12 +58,11 @@ export const createExerciseMarkup = (data, isFavorite = false) => {
                     </div>
                 </div>
             </div>
-        </div>`).join('');
-      }
-}
-
-
-
+        </div>`
+      )
+      .join('');
+  }
+};
 
 /**choose markup for exercise's card depend on:
  *  if it's the Favorite page or Home
@@ -83,5 +95,5 @@ function toggleExercisesCard(rating = null) {
  * @returns {string}
  */
 function convertRating(rating) {
-    return rating % 1 ? `${Math.round(rating * 10) / 10}` : `${rating}.0`;
+  return rating % 1 ? `${Math.round(rating * 10) / 10}` : `${rating}.0`;
 }

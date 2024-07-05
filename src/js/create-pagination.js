@@ -4,8 +4,6 @@ export function createPagination({ params, totalPages, method }) {
   const pagination = document.querySelector('.pagination');
   let buttons = '';
 
-  console.log(params)
-
   const page = parseInt(params.page);
 
   if (totalPages <= 1) {
@@ -67,7 +65,18 @@ export function createPagination({ params, totalPages, method }) {
     `;
   }
 
-  if (page + 3 <= totalPages) {
+  if (page + 3 == totalPages) {
+    
+
+    buttons += `
+      <button class="button${
+        totalPages == page ? ' active' : ''
+      }" data-page="${totalPages}">
+        ${totalPages}
+      </button>
+    `;
+  }
+  else if (page + 3 < totalPages) {
     buttons += `
         <button class="button" data-page="1" disabled>
           ...
@@ -82,15 +91,6 @@ export function createPagination({ params, totalPages, method }) {
       </button>
     `;
   }
-
-  //right arrow
-  /* buttons += `
-      <button class="button" data-page="${page + 1}" ${
-    page + 1 > totalPages && 'disabled'
-  }>
-        >
-      </button>
-    `; */
 
   pagination.innerHTML = buttons;
   handlePaginationClick({ params, pagination, method });

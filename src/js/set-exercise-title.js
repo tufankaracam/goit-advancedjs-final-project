@@ -2,6 +2,8 @@ export function setExerciseTitle(text) {
     const title = document.querySelector('.js-title');
     const titleSlash = document.querySelector('.js-title-slash');
 
+    
+
     if(text === '') {
       title.classList.add('is-hide');
       titleSlash.classList.add('is-hide');
