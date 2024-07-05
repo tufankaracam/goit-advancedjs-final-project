@@ -46,9 +46,9 @@
 
 .rating-header .icon-star {
   cursor: pointer;
-  -webkit-transition: .3s;
-  -o-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .rating-form {
@@ -104,9 +104,9 @@
   background: #f4f4f4;
   font-size: 14px;
   border: none;
-  -webkit-transition: .3s;
-  -o-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .send-rating-btn {
@@ -122,7 +122,6 @@
 }
 
 @media screen and (min-width: 768px) {
-
   .modal-window-rating {
     max-width: 430px;
     padding: 40px;
@@ -155,7 +154,6 @@
   .send-rating-btn {
     font-size: 16px;
   }
-
 }
 
 .hidden {

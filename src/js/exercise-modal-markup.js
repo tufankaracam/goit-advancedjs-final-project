@@ -58,10 +58,9 @@ export function renderExcerciseModal(exerciseData) {
 }
 
 function renderStars(rating) {
-  exerciseModal.querySelectorAll('.icon-star')
-    .forEach((star, index) => {
-      star.classList.toggle('empty', index >= Math.round(rating));
-    });
+  exerciseModal.querySelectorAll('.icon-star').forEach((star, index) => {
+    star.classList.toggle('empty', index >= Math.round(rating));
+  });
 }
 
 function capitalizeFirst(str) {

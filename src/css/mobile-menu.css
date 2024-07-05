@@ -36,7 +36,9 @@
   justify-content: space-between;
   background-color: var(--primary-dark-color);
   transform: translateX(100%);
-  transition: transform 250ms ease-in-out, opacity 250ms ease-in-out;
+  transition:
+    transform 250ms ease-in-out,
+    opacity 250ms ease-in-out;
   opacity: 0;
   padding: 248px 0 20px;
 }
@@ -61,7 +63,9 @@
   width: 16px;
   height: 16px;
   fill: var(--primary-light-color);
-  transition: transform 0.3s ease, fill 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    fill 0.3s ease;
 }
 
 .menu-container .menu-icon:hover,
@@ -86,7 +90,9 @@
 }
 
 .menu-container .menu-nav-container:hover {
-  transition: background-color 0.4s, transform 0.2s;
+  transition:
+    background-color 0.4s,
+    transform 0.2s;
 }
 
 .menu-nav-link {
@@ -115,7 +121,9 @@
   width: 44px;
   height: 44px;
   border: 1px solid rgba(244, 244, 244, 0.1);
-  transition: background-color 0.4s, transform 0.2s;
+  transition:
+    background-color 0.4s,
+    transform 0.2s;
   border-radius: 10px;
 }
 

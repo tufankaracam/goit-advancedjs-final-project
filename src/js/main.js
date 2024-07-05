@@ -42,7 +42,7 @@ searchForm?.addEventListener('submit', async e => {
   e.preventDefault();
 
   const category = document.querySelector('.btn-filter.active').dataset.exercise;
-  
+
   const totalPages = await fetchExercises({
     [category]: catValue,
     category,
@@ -74,17 +74,14 @@ content?.addEventListener('click', async e => {
   });
   attachExerciseModalListeners();
   if (window.innerWidth < 768) {
-    document
-      .querySelector('.filter-title')
-      .scrollIntoView({ behavior: 'smooth' });
+    document.querySelector('.filter-title').scrollIntoView({ behavior: 'smooth' });
   }
-
 });
 
 document.querySelector('.toggle-btn-home').classList.add('active');
 document.querySelector('.toggle-btn-favorites').classList.remove('active');
 
-scrollProgress.addEventListener("click", () => {
+scrollProgress.addEventListener('click', () => {
   document.documentElement.scrollTop = 0;
 });
 
