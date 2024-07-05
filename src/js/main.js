@@ -46,7 +46,7 @@ searchForm.addEventListener('submit', async e => {
 
   
   const category = document.querySelector('.btn-filter.active').dataset.exercise;
-  console.log(category)
+
 
   const totalPages = await fetchExercises({
     [category]: catValue,
