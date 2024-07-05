@@ -4,8 +4,8 @@ export function handlePaginationClick({ params, pagination, method }) {
 
   buttons.forEach(button => {
     button.addEventListener('click', e => {
-if (!button.classList.contains('active')) {
-  currentPage = button.dataset.page;
+      if (!button.classList.contains('active')) {
+        currentPage = button.dataset.page;
         method({
           ...params,
           page: currentPage,

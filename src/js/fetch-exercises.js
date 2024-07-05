@@ -3,13 +3,21 @@ import { constants } from './constants';
 
 import { createExerciseMarkup } from './exercise-card-markup';
 import { createPagination } from './create-pagination';
+import { showSearchForm } from './show-search-form';
 
 export async function fetchExercises(params) {
+  const category =
+    document.querySelector('.btn-filter.active').dataset.exercise;
 
-  const { category, ...searchparams } = params;
-  
+  if (params?.value) {
+    params[category] = params?.value;
+  }
 
-  const { keyword, page } = params;
+  const keyword = document.querySelector('.input-search-exersises').value;
+  params.keyword = keyword;
+
+  showSearchForm(true);
+
   let filterParams = '?';
   const content = document.querySelector('.content');
 
@@ -17,29 +25,24 @@ export async function fetchExercises(params) {
     filterParams += `${key}=${value}&`;
   }
 
+  console.log(filterParams);
+
   const { data } = await axios({
     method: 'get',
-    url: `${constants.domen}/exercises${filterParams}limit=10`,
+    url: `${constants.domen}/exercises${filterParams}limit=${
+      window.innerWidth < 768 ? 8 : 10
+    }`,
     responseType: 'json',
   });
 
   content.innerHTML = createExerciseMarkup(data.results);
-
-  const titleExercise = document.querySelector('.js-title');
-  const titleExerciseSlash = document.querySelector('.js-title-slash');
-
-  titleExercise.textContent = category;
-  titleExercise.classList.remove('is-hide');
-  titleExerciseSlash.classList.remove('is-hide');
-
-  
 
   const pagination = document.querySelector('.pagination');
   pagination.innerHTML = '';
 
   if (data.totalPages > 1) {
     createPagination({
-      params: searchparams,
+      params: params,
       totalPages: data?.totalPages,
       method: fetchExercises,
     });
