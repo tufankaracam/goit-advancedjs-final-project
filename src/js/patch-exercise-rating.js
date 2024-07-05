@@ -4,7 +4,7 @@ import { constants } from './constants';
 export async function patchRating(id, formData) {
   const { data } = await axios({
     method: 'patch',
-    url: `${constants.domen}/exercises/${id}/rating`,
+    url: `${constants.DOMEN}/exercises/${id}/rating`,
     responseType: 'json',
     data: formData,
   });

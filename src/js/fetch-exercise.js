@@ -8,7 +8,7 @@ export async function fetchExercise(id) {
   try {
     const { data } = await axios({
       method: 'get',
-      url: `${constants.domen}/exercises/${id}`,
+      url: `${constants.DOMEN}/exercises/${id}`,
       responseType: 'json',
     });
     return data;

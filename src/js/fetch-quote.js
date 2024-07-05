@@ -8,7 +8,7 @@ export async function fetchQuote() {
   try {
     const { data } = await axios({
       method: 'get',
-      url: `${constants.domen}/quote`,
+      url: `${constants.DOMEN}/quote`,
       responseType: 'json',
     });
 
