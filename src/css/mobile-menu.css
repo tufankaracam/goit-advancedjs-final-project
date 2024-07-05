@@ -1,0 +1,134 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  z-index: 999;
+  background-color: rgb(var(--cl-primary-dark) / 40%);
+  transition: opacity var(--tran-duration);
+}
+
+.overlay.hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu-container .menu-icon {
+  stroke: var(--primary-light-color);
+}
+
+.menu-container .menu-icon:hover {
+  background-color: var(--primary-dark-color);
+}
+
+.menu-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 210px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--primary-dark-color);
+  transform: translateX(100%);
+  transition: transform 250ms ease-in-out, opacity 250ms ease-in-out;
+  opacity: 0;
+  padding: 248px 0 20px;
+}
+
+.menu-container.is-open {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.menu-container.is-closing {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.menu-container .menu-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.icon-close {
+  width: 16px;
+  height: 16px;
+  fill: var(--primary-light-color);
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.menu-container .menu-icon:hover,
+.menu-icon:focus {
+  transform: scale(1.1);
+}
+
+.menu-container .menu-icon:active {
+  transform: scale(1.2);
+}
+
+.menu-nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.menu-container .menu-nav-item:hover {
+  transform: scale(1.1);
+  transition: transform 250ms;
+}
+
+.menu-container .menu-nav-container:hover {
+  transition: background-color 0.4s, transform 0.2s;
+}
+
+.menu-nav-link {
+  text-align: center;
+  color: var(--primary-light-color);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .menu-container {
+    display: none;
+  }
+}
+
+.menu-container .social {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+}
+
+.menu-container .social-link {
+  align-items: center;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(244, 244, 244, 0.1);
+  transition: background-color 0.4s, transform 0.2s;
+  border-radius: 10px;
+}
+
+.menu-container .social-icon {
+  fill: var(--primary-light-color);
+}
+
+.menu-container .social-link:hover {
+  transform: scale(1.05);
+  border: 1px solid rgba(24, 24, 24, 0.1);
+  background-color: var(--primary-light-color);
+}
+
+.menu-container .social-link:hover .social-icon {
+  fill: var(--primary-dark-color);
+}

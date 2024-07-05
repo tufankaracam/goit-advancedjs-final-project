@@ -46,8 +46,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 searchForm.addEventListener('submit', async e => {
   e.preventDefault();
 
-  await fetchExercises({
-    value: catValue,
+  const category = document.querySelector('.btn-filter.active').dataset.exercise;
+
+  const totalPages = await fetchExercises({
+    [category]: catValue,
+    category,
+    keyword,
     page,
   });
   attachExerciseModalListeners();
@@ -66,14 +70,18 @@ searchForm.addEventListener('reset', async e => {
 content.addEventListener('click', async e => {
   const item = e.target.closest('.category-wrap');
   if (!item) return;
-
+  searchForm.classList.remove('is-hide');
   catValue = item.getAttribute('name');
-  setExerciseTitle(catValue);
-  await fetchExercises({
-    value: catValue,
-    page,
-  });
-  attachExerciseModalListeners();
+  const category = document.querySelector('.btn-filter.active').dataset.exercise;
+
+catValue = item.getAttribute('name');
+setExerciseTitle(catValue);
+await fetchExercises({
+  value: catValue,
+  page,
+});
+attachExerciseModalListeners();
+
 });
 
 document.querySelector('.toggle-btn-home').classList.add('active');
