@@ -1,5 +1,5 @@
 import { fetchExercise } from './fetch-exercise';
-import { initFavoritesButtons } from './favorites';
+import { initFavoritesButtons } from './init-favorites-buttons';
 import { initRatingForm } from './rating-form';
 import { renderExcerciseModal } from './exercise-modal-markup';
 import { showToast } from './toast';
