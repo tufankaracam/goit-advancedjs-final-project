@@ -4,6 +4,7 @@ import { fetchCategories } from './fetch-categories';
 import { handleFiltersClick } from './handle-filters-click';
 import { fetchExercises } from './fetch-exercises';
 import { openModal } from './exercise-modal';
+import './handle-email-form';
 
 const searchForm = document.querySelector('.form-search-exersises');
 const content = document.querySelector('.content');
@@ -59,7 +60,7 @@ content.addEventListener('click', async e => {
   searchForm.classList.remove('is-hide');
   catValue = item.getAttribute('name');
   const category = document.querySelector('.btn-filter.active').dataset.exercise;
-  
+
   const totalPages = await fetchExercises({
     [category]: catValue,
     category,
