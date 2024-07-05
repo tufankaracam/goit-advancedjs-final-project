@@ -70,15 +70,18 @@ content.addEventListener('click', async e => {
   if (!item) return;
   searchForm.classList.remove('is-hide');
   catValue = item.getAttribute('name');
-  const category = document.querySelector('.btn-filter.active').dataset.exercise;
 
-catValue = item.getAttribute('name');
-setExerciseTitle(catValue);
-await fetchExercises({
-  value: catValue,
-  page,
-});
-attachExerciseModalListeners();
+  setExerciseTitle(catValue);
+  await fetchExercises({
+    value: catValue,
+    page,
+  });
+  attachExerciseModalListeners();
+  if (window.innerWidth < 768) {
+    document
+      .querySelector('.filter-title')
+      .scrollIntoView({ behavior: 'smooth' });
+  }
 
 });
 
