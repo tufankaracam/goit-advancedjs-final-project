@@ -5,7 +5,6 @@
   max-width: 335px;
   width: 100%;
   padding: 16px;
-
   background-color: var(--white);
   border-radius: 15px;
 }
@@ -32,16 +31,18 @@
   width: 100%;
   justify-content: space-between;
   margin-bottom: 25px;
+  row-gap: 8px;
 }
+
 .exercises-workout-ratio {
   gap: 16px;
 }
+
 .exercises-workout {
   text-align: center;
   padding: 5px 8px;
   border-radius: 15px;
   border: 1px solid var(--primary-dark-color);
-
   color: var(--primary-dark-color);
   font-size: 12px;
   font-weight: 500;
@@ -124,7 +125,7 @@
 .exercises-name {
   color: var(--primary-dark-color);
   font-size: 20px;
-  line-height: 1.0;
+  line-height: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -133,6 +134,9 @@
 .exercises-info {
   gap: 10px;
   max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -168,25 +172,50 @@
 
 .exercises-info-value.burned-calories {
   text-transform: none;
-  max-width: 40px;
+  max-width: 90px;
   width: 100%;
 }
 
 .exercises-info-value.body-part {
-  max-width: 32px;
+  max-width: 90px;
   width: 100%;
 }
 
 .exercises-info-value.target {
-  max-width: 21px;
+  max-width: 90px;
   width: 100%;
 }
 
-  .content.exercises {
-    gap: 20px;
+.content.exercises {
+  gap: 20px;
+}
+
+@media screen and (min-width: 353px) {
+  .exercises-info-value.body-part {
+    max-width: 32px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .exercises-info {
+    flex-wrap: nowrap;
   }
 
-@media screen and (min-width: 768px) { 
+  .exercises-info-value.burned-calories {
+    text-transform: none;
+    max-width: 40px;
+  }
+
+  .exercises-info-value.body-part {
+    max-width: 32px;
+  }
+
+  .exercises-info-value.target {
+    max-width: 21px;
+  }
+}
+
+@media screen and (min-width: 768px) {
   .exercises-container {
     max-width: calc((100% - 16px) / 2);
     width: 100%;
@@ -194,7 +223,7 @@
 
   .exercises-title {
     margin-bottom: 8px;
-}
+  }
 
   .exercises-name {
     max-width: 272px;
@@ -214,7 +243,6 @@
     max-width: calc((100% - 16px) / 2);
     width: 100%;
   }
-
 
   .exercises-name {
     max-width: 378px;

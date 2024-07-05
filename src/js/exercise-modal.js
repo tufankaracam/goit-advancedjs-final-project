@@ -9,12 +9,10 @@ export async function openModal(exerciseId) {
   let exerciseData;
   try {
     exerciseData = await fetchExercise(exerciseId);
-  } catch (error) {
-    console.error('Error fetching exercise data:', error);
- }
- renderModal(exerciseData);
- addCloseButtonListener();
- addFavoritesListener();
+    renderModal(exerciseData);
+    addCloseButtonListener();
+    addFavoritesListener();
+  } catch (error) {}
 }
 
 function renderModal(exerciseData) {
@@ -28,13 +26,12 @@ function renderModal(exerciseData) {
   document.querySelector('.popularity-value-js').innerHTML = exerciseData.popularity;
   document.querySelector('.calories-value-js').innerHTML = `${exerciseData.burnedCalories}/${exerciseData.time} min`;
   document.querySelector('.exercise-description').textContent = exerciseData.description;
-  renderStars(exerciseData.rating)
+  renderStars(exerciseData.rating);
   showModal();
 }
 
 function renderStars(rating) {
-  document.querySelectorAll('.icon-star')
-  .forEach((star, index) => {
+  document.querySelectorAll('.icon-star').forEach((star, index) => {
     star.classList.toggle('empty', index >= Math.round(rating));
   });
 }
@@ -48,7 +45,7 @@ function hideModal() {
 }
 
 function addCloseButtonListener() {
-    closeButton.addEventListener('click', hideModal);
+  closeButton.addEventListener('click', hideModal);
 }
 
 function addToFavorites() {

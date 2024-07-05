@@ -1,5 +1,3 @@
-import axios from 'axios';
-import { constants } from './constants';
 import { createPagination } from './create-pagination';
 import { showSearchForm } from './show-search-form';
 import { setExerciseTitle } from './set-exercise-title';

@@ -11,12 +11,16 @@ import './handle-email-form';
 const searchForm = document.querySelector('.form-search-exersises');
 const content = document.querySelector('.content');
 const filterTabs = document.querySelector('.list-filter-exersises');
+const loader = document.querySelector('.loader-start');
+loader.style.display = 'block';
 
 const filter = 'Muscles';
 let page = 1;
 let catValue = '';
 
 document.addEventListener('DOMContentLoaded', async () => {
+
+  loader.style.display = 'none';
   const method = fetchCategories;
   fetchAndSetQuote();
   // if (isExcercisesPage) {

@@ -1,5 +1,4 @@
-import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
+import { showToast } from './toast';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.footer-form');
@@ -11,25 +10,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = emailInput.value;
 
     if (!validateEmail(email)) {
-      iziToast.error({
-        title: 'Error',
-        message: 'Please enter a valid email address.',
-        position: 'topRight'
-      });
+      showToast(
+        'error',
+        'Error',
+        'Please enter a valid email address.'
+      );
       return;
     }
 
-    const formData = {
-      email: email
-    };
-
-    console.log('Form Data:', formData);
-
-    iziToast.success({
-      title: 'Success',
-      message: 'You have successfully subscribed!',
-      position: 'topRight'
-    });
+    showToast(
+      'success',
+      'Success',
+      'You have successfully subscribed!'
+    );
 
     form.reset();
   });
