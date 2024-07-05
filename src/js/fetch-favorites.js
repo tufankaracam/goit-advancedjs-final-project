@@ -6,7 +6,7 @@ import { createPagination } from './create-pagination';
 export async function fetchFavorites(params) {
   const { data } = await axios({
     method: 'get',
-    url: `${constants.domen}/exercises?page=1&limit=10000`,
+    url: `${constants.DOMEN}/exercises?page=1&limit=10000`,
     responseType: 'json',
   });
   const perPage = 4;

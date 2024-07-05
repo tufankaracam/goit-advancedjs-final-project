@@ -29,7 +29,7 @@ export async function fetchExercises(params) {
   try {
     const { data } = await axios({
       method: 'get',
-      url: `${constants.domen}/exercises${filterParams}limit=${window.innerWidth < 768 ? 8 : 10}`,
+      url: `${constants.DOMEN}/exercises${filterParams}limit=${window.innerWidth < 768 ? 8 : 10}`,
       responseType: 'json',
     });
 

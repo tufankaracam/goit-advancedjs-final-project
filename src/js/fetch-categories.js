@@ -16,7 +16,7 @@ export async function fetchCategories(params) {
   try {
     const response = await axios({
       method: 'get',
-      url: `${constants.domen}/filters${filterParams}limit=${window.innerWidth < 768 ? 9 : 12}`,
+      url: `${constants.DOMEN}/filters${filterParams}limit=${window.innerWidth < 768 ? 9 : 12}`,
       responseType: 'json',
     });
 
