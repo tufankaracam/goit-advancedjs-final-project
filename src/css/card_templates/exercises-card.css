@@ -101,7 +101,8 @@
 }
 
 .icon-arrow {
-  stroke: currentColor;
+  color: currentColor;
+  font-size: 18px;
 }
 
 .exercises-title {

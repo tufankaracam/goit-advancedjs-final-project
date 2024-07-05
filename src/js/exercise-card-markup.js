@@ -20,9 +20,7 @@ export const createExerciseMarkup = (data, isFavorite = false) => {
                     </div>
                     <button class="modal-exercise-info" type="button" id="${_id}">
                         <span>Start</span>
-                        <svg class="icon-arrow" width="16" height="16">
-                            <use href="/images/icons.svg#icon-arrow"></use>
-                        </svg>
+                        <span class="icon-arrow-right icon-arrow"></span>
                     </button>
                 </div>
                 <div class="exercises-title">
@@ -63,15 +61,11 @@ function toggleExercisesCard(rating = null) {
   if (rating || rating === 0) {
     return `<div class="exercises-ratio">
       <p class="ratio-value">${convertRating(rating)}</p>
-      <svg class="ratio-star" width="18" height="18">
-          <use href="/images/icons.svg#icon-star"></use>
-      </svg>
+      <span class="icon-star ratio-star"></span>
       </div>`;
   }
   return `<button class="trash-btn js-delete-favorite" type="button">
-    <svg class="trash-icon" width="16" height="16">
-        <use href="/images/icons.svg#icon-trash"></use>
-    </svg>
+    <span class="icon-star trash-icon"></span>
     </button>`;
 }
 
