@@ -5,6 +5,7 @@ import FullReload from 'vite-plugin-full-reload';
 
 export default defineConfig(({ command }) => {
   return {
+    base: '/goit-advancedjs-final-project/',
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
@@ -20,6 +21,12 @@ export default defineConfig(({ command }) => {
             }
           },
           entryFileNames: 'commonHelpers.js',
+          assetFileNames: assetInfo => {
+            if (assetInfo.name === 'icons.svg') {
+              return 'assets/icons-[hash][extname]';
+            }
+            return 'assets/[name]-[hash][extname]';
+          },
         },
       },
       outDir: '../dist',

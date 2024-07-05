@@ -1,0 +1,157 @@
+.modal-window-rating {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  background: #242424;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 335px;
+  min-width: 285px;
+  width: calc(100% - 40px);
+  padding: 40px 20px;
+  border-radius: 20px;
+}
+
+.rating-wrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.rating-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rating-header h3 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5em;
+  color: rgba(244, 244, 244, 0.4);
+}
+
+.rating-header .rating {
+  height: 24px;
+  font-size: 16px;
+}
+
+.rating-header .rating-value {
+  line-height: 2em;
+  width: 18px;
+}
+
+.rating-header .icon-star {
+  cursor: pointer;
+}
+
+.rating-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rating-form input,
+.rating-form textarea {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.285em;
+  color: #f4f4f4;
+}
+
+.rating-form-email {
+  border: 1px solid #f4f4f4;
+  border-radius: 30px;
+  padding-left: 14px;
+  height: 42px;
+  outline: none;
+  background: none;
+}
+
+.rating-form-comment {
+  border: 1px solid #f4f4f4;
+  border-radius: 15px;
+  padding: 12px 14px;
+  height: 93px;
+  resize: none;
+  outline: none;
+  background: none;
+  overflow: hidden;
+}
+
+.rating-form-email::placeholder,
+.rating-form-comment::placeholder {
+  font-size: 14px;
+  line-height: 1.285em;
+  color: rgba(244, 244, 244, 0.6);
+}
+
+.send-rating-btn {
+  display: flex;
+  height: 42px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 30px;
+  padding: 12px 24px;
+  background: #f4f4f4;
+  font-size: 14px;
+  border: none;
+}
+
+.send-rating-btn {
+  margin: 0 auto;
+}
+
+.send-rating-btn:hover,
+.send-rating-btn:focus {
+  background: none;
+  border: 1px solid #f4f4f4;
+  color: #f4f4f4;
+  outline: none;
+}
+
+@media screen and (min-width: 768px) {
+
+  .modal-window-rating {
+    max-width: 430px;
+    padding: 40px;
+  }
+
+  .rating-wrapper {
+    gap: 32px;
+  }
+
+  .rating-form-email {
+    height: 48px;
+  }
+
+  .rating-form-comment {
+    height: 106px;
+  }
+
+  .rating-form {
+    gap: 16px;
+  }
+
+  .rating-form input,
+  .rating-form textarea,
+  .rating-form-email::placeholder,
+  .rating-form-comment::placeholder {
+    font-size: 16px;
+    line-height: 1.5em;
+  }
+
+  .send-rating-btn {
+    font-size: 16px;
+  }
+
+}
+
+.hidden {
+  display: none;
+}

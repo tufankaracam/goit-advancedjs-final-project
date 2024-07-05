@@ -39,11 +39,6 @@ body {
   width: 32px;
 }
 
-.logo {
-  width: 132px;
-  height: 24px;
-}
-
 .social {
   display: flex;
   gap: 12px;
@@ -51,10 +46,10 @@ body {
 
 .social-link {
   border-radius: 10px;
-  border: 1px solid rgba(244, 244, 244, 0.1);
   display: inline-flex;
   padding: 8px;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 .social-icon {

@@ -15,20 +15,19 @@ const loader = document.querySelector('.loader-start');
 loader.style.display = 'block';
 
 const filter = 'Muscles';
-let page = 1;
+const page = 1;
 let catValue = '';
 
 document.addEventListener('DOMContentLoaded', async () => {
   loader.style.display = 'none';
 
-  const method = fetchCategories;
   fetchAndSetQuote();
   // if (isExcercisesPage) {
   //   method = fetchExcercises;
   // }
-  handleFiltersClick(method);
+  handleFiltersClick(fetchCategories);
 
-  const totalPages = await method({
+  const totalPages = await fetchCategories({
     filter,
     page,
   });
