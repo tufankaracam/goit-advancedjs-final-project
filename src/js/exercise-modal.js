@@ -1,9 +1,8 @@
 import { fetchExercise } from './fetch-exercise';
+import { initFavoritesButtons } from './favorites';
 
 const modal = document.getElementById('exerciseModal');
 const closeButton = document.getElementById('closeButton');
-const addFavoritesButton = document.getElementById('addFavoritesButton');
-const removeFavoritesButton = document.getElementById('removeFavoritesButton');
 
 export async function openModal(exerciseId) {
   let exerciseData;
@@ -11,8 +10,10 @@ export async function openModal(exerciseId) {
     exerciseData = await fetchExercise(exerciseId);
     renderModal(exerciseData);
     addCloseButtonListener();
-    addFavoritesListener();
-  } catch (error) {}
+    initFavoritesButtons();
+  } catch (error) {
+    showToast('error', 'Server error', 'Error fetching exercise data');
+  }
 }
 
 function renderModal(exerciseData) {
@@ -26,6 +27,8 @@ function renderModal(exerciseData) {
   document.querySelector('.popularity-value-js').innerHTML = exerciseData.popularity;
   document.querySelector('.calories-value-js').innerHTML = `${exerciseData.burnedCalories}/${exerciseData.time} min`;
   document.querySelector('.exercise-description').textContent = exerciseData.description;
+  document.querySelector('#addFavoritesButton').dataset.id = exerciseData._id;
+  document.querySelector('#removeFavoritesButton').dataset.id = exerciseData._id;
   renderStars(exerciseData.rating);
   showModal();
 }
@@ -46,25 +49,4 @@ function hideModal() {
 
 function addCloseButtonListener() {
   closeButton.addEventListener('click', hideModal);
-}
-
-function addToFavorites() {
-  // Add logic to store in localstorage
-  addFavoritesButton.classList.add('hidden');
-  removeFavoritesButton.classList.remove('hidden');
-  addRemoveFavoritesListener();
-}
-
-function removeFromFavorites() {
-  // Add logic to remove from localstorage
-  addFavoritesButton.classList.remove('hidden');
-  removeFavoritesButton.classList.add('hidden');
-}
-
-function addFavoritesListener() {
-  addFavoritesButton.addEventListener('click', addToFavorites);
-}
-
-function addRemoveFavoritesListener() {
-  removeFavoritesButton.addEventListener('click', removeFromFavorites);
 }
