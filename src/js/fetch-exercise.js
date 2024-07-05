@@ -13,11 +13,11 @@ export async function fetchExercise(id) {
     });
     return data;
   } catch (error) {
-    showToast(
-      'error',
-      'Server error',
-      'Sorry, the exercise information was not retrieved from the server. Please refresh the page'
-    );
+    showToast({
+      type: 'error',
+      title: 'Server error',
+      message: 'Sorry, the exercise information was not retrieved from the server. Please refresh the page'
+  });
   } finally {
     loader.style.display = 'none';
   }

@@ -10,19 +10,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = emailInput.value;
 
     if (!validateEmail(email)) {
-      showToast(
-        'error',
-        'Error',
-        'Please enter a valid email address.'
-      );
+      showToast({
+        type: 'error',
+        title: 'Error',
+        message: 'Please enter a valid email address.',
+      });
       return;
     }
 
-    showToast(
-      'success',
-      'Success',
-      'You have successfully subscribed!'
-    );
+    showToast({
+      type: 'success',
+      title: 'Success',
+      message: 'You have successfully subscribed!',
+    });
 
     form.reset();
   });
