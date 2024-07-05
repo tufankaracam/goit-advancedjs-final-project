@@ -14,21 +14,20 @@ export async function openModal(exerciseId) {
   let exerciseData;
   try {
     exerciseData = await fetchExercise(exerciseId);
-    renderExcerciseModal(exerciseData);
-    popualteSelectors(exerciseData);
-    showOverlay();
-    addExerciseCloseButtonListener();
-    addFavoritesListener();
-    addRatingButtonListener(exerciseId);
-    addCloseButtonListener();
-    initFavoritesButtons();
   } catch (error) {
     showToast({
       type: 'error',
       title: 'Server error',
       message: 'Error fetching exercise data'
     })
-  } 
+  }
+  renderExcerciseModal(exerciseData);
+  popualteSelectors(exerciseData);
+  showOverlay();
+  addExerciseCloseButtonListener();
+  addFavoritesListener();
+  addRatingButtonListener(exerciseId);
+  initFavoritesButtons(); 
 }
 
 function popualteSelectors() {
