@@ -15,14 +15,17 @@ export async function fetchAndSetQuote() {
   const savedQuote = localStorage.getItem('quote');
   const currentDate = getCurrentDate();
 
-  if(!savedQuote || JSON.parse(savedQuote).currentDate !== currentDate) {
+  if (!savedQuote || JSON.parse(savedQuote).currentDate !== currentDate) {
     const { author, quote } = await fetchQuote();
     setQuote(author, quote);
-    localStorage.setItem('quote', JSON.stringify({
-      currentDate,
-      author,
-      quote,
-    }));
+    localStorage.setItem(
+      'quote',
+      JSON.stringify({
+        currentDate,
+        author,
+        quote,
+      })
+    );
     return;
   }
 
