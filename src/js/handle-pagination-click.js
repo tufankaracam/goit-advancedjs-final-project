@@ -14,9 +14,7 @@ export function handlePaginationClick({ params, pagination, method }) {
         button.classList.add('active');
       }
       if (window.innerWidth < 768) {
-        document
-          .querySelector('.filter-title')
-          .scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('.filter-title').scrollIntoView({ behavior: 'smooth' });
       }
     });
   });

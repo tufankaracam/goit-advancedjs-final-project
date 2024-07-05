@@ -12,23 +12,11 @@ export const createExerciseMarkup = (data, isFavorite = false) => {
   } else {
     return data
       .map(
-        ({
-          _id,
-          name,
-          burnedCalories,
-          rating,
-          target,
-          time,
-          bodyPart,
-        }) => `<div class="exercises-container">
+        ({ _id, name, burnedCalories, rating, target, time, bodyPart }) => `<div class="exercises-container">
                 <div class="exercises-header">
                     <div class="exercises-workout-ratio">
                         <div class="exercises-workout">WORKOUT</div>
-                        ${
-                          isFavorite
-                            ? toggleExercisesCard()
-                            : toggleExercisesCard(rating)
-                        }
+                        ${isFavorite ? toggleExercisesCard() : toggleExercisesCard(rating)}
                     </div>
                     <button class="modal-exercise-info" type="button" id="${_id}">
                         <span>Start</span>

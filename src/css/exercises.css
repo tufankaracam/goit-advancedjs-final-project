@@ -137,20 +137,18 @@
   stroke: currentColor;
 }
 
-.js-clear-input{
+.js-clear-input {
   opacity: 0;
   font-size: 13px;
   position: relative;
   top: 4px;
 }
 
-.input-search-exersises:not(:placeholder-shown) + .btn-search-wrapper>.js-clear-input{
+.input-search-exersises:not(:placeholder-shown) + .btn-search-wrapper > .js-clear-input {
   opacity: 1;
-
-} 
+}
 
 .btn-search-wrappe .icon-x {
-  
   padding: 4px;
   fill: currentColor;
   stroke: currentColor;
@@ -195,7 +193,9 @@
   background-color: var(--primary-dark-color);
   opacity: 0;
   transform: scale(0);
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition:
+    transform 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
 }
 
 .btn-filter:hover::after {

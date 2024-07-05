@@ -62,7 +62,7 @@ body {
   height: 28px;
 }
 
-.main-layout{
+.main-layout {
   margin-bottom: 80px;
 }
 
@@ -86,7 +86,7 @@ body {
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
   margin-right: 10px;
-} 
+}
 
 .loader-start {
   display: block;
@@ -112,7 +112,7 @@ body {
     padding-right: 32px;
   }
 
-  .main-layout{
+  .main-layout {
     margin-bottom: 100px;
   }
 }
