@@ -11,7 +11,8 @@ import './handle-email-form';
 
 const searchForm = document.querySelector('.form-search-exersises');
 const content = document.querySelector('.content');
-const filterTabs = document.querySelector('.list-filter-exersises');
+const loader = document.querySelector('.loader-start');
+loader.style.display = 'block';
 
 const filter = 'Muscles';
 const page = 1;
@@ -22,9 +23,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   loader.style.display = 'none';
 
   fetchAndSetQuote();
-  // if (isExcercisesPage) {
-  //   method = fetchExcercises;
-  // }
   handleFiltersClick(fetchCategories);
 
   const totalPages = await fetchCategories({
@@ -41,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
-searchForm.addEventListener('submit', async e => {
+searchForm?.addEventListener('submit', async e => {
   e.preventDefault();
 
   
@@ -56,7 +54,7 @@ searchForm.addEventListener('submit', async e => {
   attachExerciseModalListeners();
 });
 
-searchForm.addEventListener('reset', async e => {
+searchForm?.addEventListener('reset', async e => {
   e.preventDefault();
   e.target.querySelector('.input-search-exersises').value = '';
   await fetchExercises({
@@ -66,7 +64,7 @@ searchForm.addEventListener('reset', async e => {
   attachExerciseModalListeners();
 });
 
-content.addEventListener('click', async e => {
+content?.addEventListener('click', async e => {
   const item = e.target.closest('.category-wrap');
   if (!item) return;
   searchForm.classList.remove('is-hide');

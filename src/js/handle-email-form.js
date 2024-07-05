@@ -2,9 +2,9 @@ import { showToast } from './toast';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.footer-form');
-  const emailInput = form.querySelector('.footer-form-input');
+  const emailInput = form?.querySelector('.footer-form-input');
 
-  form.addEventListener('submit', event => {
+  form?.addEventListener('submit', event => {
     event.preventDefault();
 
     const email = emailInput.value;
