@@ -4,6 +4,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 12px;
+  cursor: pointer;
 }
 
 .category-wrap::before {
