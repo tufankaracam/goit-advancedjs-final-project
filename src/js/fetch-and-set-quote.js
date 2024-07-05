@@ -15,6 +15,12 @@ export async function fetchAndSetQuote() {
   const savedQuote = localStorage.getItem('quote');
   const currentDate = getCurrentDate();
 
+  if (savedQuote && JSON.parse(savedQuote).currentDate == currentDate) {
+    const { author, quote } = JSON.parse(savedQuote);
+    setQuote(author, quote);
+    return;
+  }
+
   if (!savedQuote || JSON.parse(savedQuote).currentDate !== currentDate) {
     const { author, quote } = await fetchQuote();
     setQuote(author, quote);
@@ -26,9 +32,5 @@ export async function fetchAndSetQuote() {
         quote,
       })
     );
-    return;
   }
-
-  const { author, quote } = JSON.parse(savedQuote);
-  setQuote(author, quote);
 }

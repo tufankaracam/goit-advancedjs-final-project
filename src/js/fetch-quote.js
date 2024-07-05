@@ -4,7 +4,7 @@ import { showToast } from './toast';
 
 export async function fetchQuote() {
   const loader = document.querySelector('.loader-text');
-  loader.style.display = 'block';
+  loader.style.display = 'inline-block';
   try {
     const { data } = await axios({
       method: 'get',

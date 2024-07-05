@@ -12,8 +12,6 @@ import './handle-email-form';
 const searchForm = document.querySelector('.form-search-exersises');
 const content = document.querySelector('.content');
 const filterTabs = document.querySelector('.list-filter-exersises');
-const loader = document.querySelector('.loader-start');
-loader.style.display = 'block';
 
 const filter = 'Muscles';
 const page = 1;
