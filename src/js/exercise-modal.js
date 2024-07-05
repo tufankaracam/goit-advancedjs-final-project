@@ -1,52 +1,84 @@
 import { fetchExercise } from './fetch-exercise';
 import { initFavoritesButtons } from './favorites';
+import { initRatingForm } from './rating-form';
+import { renderExcerciseModal } from './exercise-modal-markup';
+import { showToast } from './toast';
 
-const modal = document.getElementById('exerciseModal');
-const closeButton = document.getElementById('closeButton');
+let modalOverlay;
+let exerciseModal;
+let addFavoritesButton;
+let removeFavoritesButton;
+let addRatingButton;
 
 export async function openModal(exerciseId) {
   let exerciseData;
   try {
     exerciseData = await fetchExercise(exerciseId);
-    renderModal(exerciseData);
+    renderExcerciseModal(exerciseData);
+    popualteSelectors(exerciseData);
+    showOverlay();
+    addExerciseCloseButtonListener();
+    addFavoritesListener();
+    addRatingButtonListener(exerciseId);
     addCloseButtonListener();
     initFavoritesButtons();
   } catch (error) {
-    showToast('error', 'Server error', 'Error fetching exercise data');
-  }
+    showToast({
+      type: 'error',
+      title: 'Server error',
+      message: 'Error fetching exercise data'
+    })
+  } 
 }
 
-function renderModal(exerciseData) {
-  document.querySelector('.exercise-header h2').textContent = exerciseData.name;
-  document.querySelector('.rating-value').textContent = exerciseData.rating.toFixed(1);
-  document.querySelector('.exercise-image').src = exerciseData.gifUrl;
-  document.querySelector('.exercise-image').alt = exerciseData.name;
-  document.querySelector('.target-value-js').innerHTML = exerciseData.target;
-  document.querySelector('.body-part-value-js').innerHTML = exerciseData.bodyPart;
-  document.querySelector('.equipment-value-js').innerHTML = exerciseData.equipment;
-  document.querySelector('.popularity-value-js').innerHTML = exerciseData.popularity;
-  document.querySelector('.calories-value-js').innerHTML = `${exerciseData.burnedCalories}/${exerciseData.time} min`;
-  document.querySelector('.exercise-description').textContent = exerciseData.description;
-  document.querySelector('#addFavoritesButton').dataset.id = exerciseData._id;
-  document.querySelector('#removeFavoritesButton').dataset.id = exerciseData._id;
-  renderStars(exerciseData.rating);
-  showModal();
+function popualteSelectors() {
+  modalOverlay = document.getElementById('modalOverlay');
+  exerciseModal = document.getElementById('exerciseModal');
+  addFavoritesButton = document.getElementById('addFavoritesButton');
+  removeFavoritesButton = document.getElementById('removeFavoritesButton');
+  addRatingButton = document.getElementById('addRatingButton');
 }
 
-function renderStars(rating) {
-  document.querySelectorAll('.icon-star').forEach((star, index) => {
-    star.classList.toggle('empty', index >= Math.round(rating));
-  });
+function showOverlay() {
+  modalOverlay.classList.remove('hidden');
 }
 
-function showModal() {
-  modal.classList.remove('hidden');
+function hideOverlay() {
+  modalOverlay.classList.add('hidden');
+  document.getElementById('exerciseModal').remove();
 }
 
-function hideModal() {
-  modal.classList.add('hidden');
+function addExerciseCloseButtonListener() {
+  const exerciseCloseBtn = exerciseModal.querySelector('#closeExerciseButton');
+  exerciseCloseBtn.addEventListener('click', hideOverlay);
 }
 
-function addCloseButtonListener() {
-  closeButton.addEventListener('click', hideModal);
+function addToFavorites() {
+  // Add logic to store in localstorage
+  addFavoritesButton.classList.add('hidden');
+  removeFavoritesButton.classList.remove('hidden');
+  addRemoveFavoritesListener();
+}
+
+function removeFromFavorites() {
+  // Add logic to remove from localstorage
+  addFavoritesButton.classList.remove('hidden');
+  removeFavoritesButton.classList.add('hidden');
+}
+
+function addFavoritesListener() {
+  addFavoritesButton.addEventListener('click', addToFavorites);
+}
+
+function addRemoveFavoritesListener() {
+  removeFavoritesButton.addEventListener('click', removeFromFavorites);
+}
+
+function addRatingButtonListener(exerciseId) {
+  addRatingButton.addEventListener('click', () => showRatingModal(exerciseId));
+}
+
+function showRatingModal(exerciseId) {
+  exerciseModal.classList.add('hidden');
+  initRatingForm(exerciseId);
 }
