@@ -13,6 +13,11 @@ export function handlePaginationClick({ params, pagination, method }) {
         buttons.forEach(button => button.classList.remove('active'));
         button.classList.add('active');
       }
+      if (window.innerWidth < 768) {
+        document
+          .querySelector('.filter-title')
+          .scrollIntoView({ behavior: 'smooth' });
+      }
     });
   });
 }

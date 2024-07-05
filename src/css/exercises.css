@@ -82,6 +82,10 @@
   color: inherit;
 }
 
+.input-search-exersises:focus::placeholder {
+  color: transparent;
+}
+
 .btn-search-wrapper {
   position: absolute;
   z-index: 2;

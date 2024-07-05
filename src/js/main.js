@@ -55,6 +55,11 @@ searchForm.addEventListener('submit', async e => {
 searchForm.addEventListener('reset', async e => {
   e.preventDefault();
   e.target.querySelector('.input-search-exersises').value = '';
+  await fetchExercises({
+    value: catValue,
+    page,
+  });
+  attachExerciseModalListeners();
 });
 
 content.addEventListener('click', async e => {
