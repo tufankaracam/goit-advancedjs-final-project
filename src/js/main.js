@@ -73,6 +73,11 @@ catValue = item.getAttribute('name');
     page,
   });
   attachExerciseModalListeners();
+  if (window.innerWidth < 768) {
+    document
+      .querySelector('.filter-title')
+      .scrollIntoView({ behavior: 'smooth' });
+  }
 });
 
 document.querySelector('.toggle-btn-home').classList.add('active');
