@@ -4,6 +4,7 @@ import { fetchCategories } from './fetch-categories';
 import { handleFiltersClick } from './handle-filters-click';
 import { fetchExercises } from './fetch-exercises';
 import { openModal } from './exercise-modal';
+import { initIconPathObserver } from './icon-path-updater';
 
 import { setExerciseTitle } from './set-exercise-title';
 import './handle-email-form';
@@ -19,6 +20,7 @@ const page = 1;
 let catValue = '';
 
 document.addEventListener('DOMContentLoaded', async () => {
+  initIconPathObserver();
   loader.style.display = 'none';
 
   fetchAndSetQuote();
