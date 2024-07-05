@@ -30,12 +30,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2px;
 }
+
 .category-title {
   color: var(--primary-light-color);
   text-align: center;
@@ -50,9 +50,9 @@
   line-height: 1.5;
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
   .category-wrap {
-    max-width: calc((100% - 2 * 16px) / 3);
+    flex-basis: calc((100% - 2 * 16px) / 3);
     position: relative;
     overflow: hidden;
     border-radius: 12px;
@@ -61,7 +61,7 @@
 
 @media screen and (min-width: 1440px) {
   .category-wrap {
-    max-width: calc((100% - 2 * 16px) / 3);
+    flex-basis: calc((100% - 2 * 16px) / 3);
     height: 242px;
   }
 
