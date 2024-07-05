@@ -44,9 +44,9 @@ export function renderExcerciseModal(exerciseData) {
       </div>
     </div>
     <div class="modal-actions">
-      <button class="add-favorites-btn" id="addFavoritesButton">Add to favorites<span
+      <button class="add-favorites-btn" id="addFavoritesButton" data-id="${exerciseData._id}">Add to favorites<span
           class="icon-heart"></span></button>
-      <button class="remove-favorites-btn hidden" id="removeFavoritesButton">Remove from favorites<span
+      <button class="remove-favorites-btn hidden" id="removeFavoritesButton" data-id="${exerciseData._id}">Remove from favorites<span
           class="icon-trash"></span></button>
       <button class="give-rating-btn" id="addRatingButton">Give a rating</button>
     </div>
