@@ -1,7 +1,7 @@
 .modal-overlay {
   font-family: 'DM Sans', sans-serif;
   position: fixed;
-  z-index: 1;
+  z-index: 20;
   left: 0;
   top: 0;
   width: 100%;
@@ -13,7 +13,7 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  z-index: 2;
+  z-index: 30;
   background: #242424;
   top: 50%;
   left: 50%;
@@ -90,9 +90,9 @@
   font-size: 12px;
   line-height: 1.5;
   color: #f4f4f4;
-  -webkit-transition: .3s;
-  -o-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .exercise-info {
@@ -157,9 +157,9 @@
   background-color: #f4f4f4;
   font-size: 14px;
   border: none;
-  -webkit-transition: .3s;
-  -o-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .add-favorites-btn:hover,
@@ -184,9 +184,9 @@
   color: #f4f4f4;
   border-radius: 30px;
   padding: 12px 24px;
-  -webkit-transition: .3s;
-  -o-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .give-rating-btn:hover {
@@ -211,9 +211,9 @@
     font-size: 14px;
     top: 16px;
     right: 16px;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    transition: .3s;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
   }
 
   .close-button:hover {

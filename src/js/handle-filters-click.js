@@ -21,7 +21,7 @@ export async function handleFiltersClick(method) {
           filter: button.dataset.category.replace(' ', '+'),
           page: 1,
         });
-  
+
         createPagination({
           params: { filter: button.dataset.category.replace(' ', '+'), page: 1 },
           totalPages,

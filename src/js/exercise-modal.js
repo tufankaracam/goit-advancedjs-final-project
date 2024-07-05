@@ -18,8 +18,8 @@ export async function openModal(exerciseId) {
     showToast({
       type: 'error',
       title: 'Server error',
-      message: 'Error fetching exercise data'
-    })
+      message: 'Error fetching exercise data',
+    });
   }
   renderExcerciseModal(exerciseData);
   popualteSelectors(exerciseData);
@@ -27,7 +27,7 @@ export async function openModal(exerciseId) {
   addExerciseCloseButtonListener();
   addFavoritesListener();
   addRatingButtonListener(exerciseId);
-  initFavoritesButtons(); 
+  initFavoritesButtons();
 }
 
 function popualteSelectors() {
