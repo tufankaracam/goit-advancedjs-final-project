@@ -19,8 +19,8 @@ let page = 1;
 let catValue = '';
 
 document.addEventListener('DOMContentLoaded', async () => {
-
   loader.style.display = 'none';
+
   const method = fetchCategories;
   fetchAndSetQuote();
   // if (isExcercisesPage) {
@@ -55,19 +55,13 @@ searchForm.addEventListener('submit', async e => {
 searchForm.addEventListener('reset', async e => {
   e.preventDefault();
   e.target.querySelector('.input-search-exersises').value = '';
-
-  await fetchExercises({
-    value: catValue,
-    page,
-  });
-  attachExerciseModalListeners();
 });
 
 content.addEventListener('click', async e => {
   const item = e.target.closest('.category-wrap');
   if (!item) return;
 
-  catValue = item.getAttribute('name');
+catValue = item.getAttribute('name');
   setExerciseTitle(catValue);
   await fetchExercises({
     value: catValue,
@@ -75,6 +69,10 @@ content.addEventListener('click', async e => {
   });
   attachExerciseModalListeners();
 });
+
+document.querySelector('.toggle-btn-home').classList.add('active');
+document.querySelector('.toggle-btn-favorites').classList.remove('active');
+
 
 function attachExerciseModalListeners() {
   const modalExerciseInfoButtons = document.querySelectorAll(

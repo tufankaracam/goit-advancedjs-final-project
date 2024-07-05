@@ -1,3 +1,156 @@
 .header {
+  padding: 20px 0;
   display: block; /* placeholder */
+}
+
+.header-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-close {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  fill: var(--primary-light-color);
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.burger-icon {
+  fill: var(--primary-dark-color);
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s ease;
+}
+
+.burger-icon:focus {
+  outline: none;
+}
+
+.burger-icon rect {
+  width: 100%;
+  height: 20%;
+  fill: var(--primary-dark-color);
+  transition: fill 0.3s ease;
+}
+
+.burger-icon:hover rect {
+  fill: var(--primary-light-color);
+}
+
+.nav {
+  display: none;
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 233px;
+  height: 52px;
+  border-radius: 60px;
+  background-color: var(--primary-dark-color);
+  transition: background-color 0.3s ease;
+}
+
+.toggle-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-light-color);
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.toggle-btn-home {
+  padding: 6px 12px;
+  width: 68px;
+  height: 36px;
+}
+
+.toggle-btn-favorites {
+  padding: 6px 12px;
+  width: 91px;
+  height: 36px;
+}
+.toggle-btn.active {
+  background-color: var(--primary-light-color);
+  color: var(--primary-dark-color);
+}
+
+.toggle-btn:hover {
+  background-color: var(--primary-light-color);
+  color: var(--primary-dark-color);
+  transition: background-color 0.5s;
+}
+
+.social {
+  display: none;
+}
+
+.social-link {
+  display: flex;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(36, 36, 36, 0.1);
+  transition: background-color 0.4s, transform 0.2s;
+}
+
+.social-icon {
+  fill: var(--primary-dark-color);
+}
+
+.social-link:hover {
+  transform: scale(1.05);
+  border: 1px solid rgba(24, 24, 24, 0.1);
+  background-color: var(--primary-dark-color);
+}
+
+.social-link:hover .social-icon {
+  fill: var(--primary-light-color);
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 24px 0;
+  }
+
+  .social {
+    display: flex;
+  }
+  .nav {
+    display: flex;
+    transform: translateY(0);
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .toggle-container {
+    width: 265px;
+  }
 }
