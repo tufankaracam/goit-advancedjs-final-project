@@ -1,6 +1,8 @@
 import { fetchFavorites } from './fetch-favorites';
+import { fetchAndSetQuote } from './fetch-and-set-quote';
 
 document.addEventListener('DOMContentLoaded', async () => {
+  fetchAndSetQuote();
   fetchFavorites({ page: 1 });
 });
 
