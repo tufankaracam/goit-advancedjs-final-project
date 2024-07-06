@@ -4,47 +4,86 @@ import { fetchFavorites } from './fetch-favorites';
 let addFavoritesButton;
 let removeFavoritesButton;
 
-export function initFavoritesButtons() {
+export function initFavoritesButtons(exerciseId) {
   addFavoritesButton = document.getElementById('addFavoritesButton');
   removeFavoritesButton = document.getElementById('removeFavoritesButton');
-  addFavoritesButton.addEventListener('click', addToFavorites);
-  removeFavoritesButton.addEventListener('click', removeFromFavorites);
-  const favorites = JSON.parse(localStorage.getItem(constants.FAV_KEY)) ?? [];
-  const exerciseId = addFavoritesButton.dataset.id;
-  if (exerciseId && favorites.includes(exerciseId)) {
+  addFavoritesButton.addEventListener('click', addToFavoritesModalListener);
+  removeFavoritesButton.addEventListener('click', removeFromFavoritesModalListner);
+
+  if (getExerciseDataById(exerciseId)) {
     showRemoveFavoritesButton();
   } else {
     showAddFavoritesButton();
   }
 }
 
-function addToFavorites(e = null, id = null, toggleButton = true) {
-  const favorites = JSON.parse(localStorage.getItem(constants.FAV_KEY)) ?? [];
-  const exerciseId = id ? id : addFavoritesButton.dataset.id;
-  if (exerciseId && !favorites.includes(exerciseId)) {
-    favorites.push(addFavoritesButton.dataset.id);
-    localStorage.setItem(constants.FAV_KEY, JSON.stringify(favorites));
-    if (toggleButton) {
-      showRemoveFavoritesButton();
-    }
-    if (currentPageIsFavorites()) {
-      fetchFavorites({ page: 1 });
-    }
+function parseFavoritesData() {
+  const modal = document.getElementById('exerciseModal');
+  const exerciseId = modal.querySelector('.add-favorites-btn').getAttribute('data-id');
+  const name = modal.querySelector('.exercise-title-js').getAttribute('data-value');
+  const rating = Number(modal.querySelector('.rating-value-js').getAttribute('data-value'));
+  const target = modal.querySelector('.details-target-js').getAttribute('data-value');
+  const bodyPart = modal.querySelector('.details-body-part-js').getAttribute('data-value');
+  const burnedCaloriesText = modal.querySelector('.details-burned-calories-js').getAttribute('data-value');
+  const burnedCalories = Number(burnedCaloriesText.split('/')[0]);
+  const timeText = burnedCaloriesText.split('/')[1];
+  const time = Number(timeText.split(' ')[0]);
+
+  return {
+    _id: exerciseId,
+    name,
+    burnedCalories,
+    rating,
+    target,
+    time,
+    bodyPart,
+  };
+}
+
+function storeExerciseData(exerciseData) {
+  let favorites = getLocalStorageFavorites();
+  favorites[exerciseData._id] = exerciseData;
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+function getExerciseDataById(id) {
+  const favorites = getLocalStorageFavorites();
+  return favorites[id] || null;
+}
+
+function addToFavoritesModalListener() {
+  const data = parseFavoritesData();
+  const favoritesRecord = getExerciseDataById(data._id);
+  if (!favoritesRecord) {
+    storeExerciseData(data);
+    showRemoveFavoritesButton();
+  }
+
+  if (currentPageIsFavorites()) {
+    fetchFavorites({ page: 1 });
   }
 }
 
-export function removeFromFavorites(e = null, id = null, toggleButton = true) {
-  const favorites = JSON.parse(localStorage.getItem(constants.FAV_KEY)) ?? [];
-  const exerciseId = id ? id : removeFavoritesButton.dataset.id;
-  if (exerciseId && favorites.includes(exerciseId)) {
-    const filteredFavorites = favorites.filter(item => item !== exerciseId);
-    localStorage.setItem(constants.FAV_KEY, JSON.stringify(filteredFavorites));
-    if (toggleButton) {
-      showAddFavoritesButton();
-    }
-    if (currentPageIsFavorites()) {
-      fetchFavorites({ page: 1 });
-    }
+function removeFromFavoritesModalListner() {
+  let favorites = getLocalStorageFavorites();
+  const exerciseId = removeFavoritesButton.dataset.id;
+  if (favorites[exerciseId]) {
+    delete favorites[exerciseId];
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    showAddFavoritesButton();
+  }
+  if (currentPageIsFavorites()) {
+    fetchFavorites({ page: 1 });
+  }
+}
+
+export function removeFromFavorites(event) {
+  let favorites = getLocalStorageFavorites();
+  const exerciseId = event.currentTarget.getAttribute('data-id');
+  if (favorites[exerciseId]) {
+    delete favorites[exerciseId];
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    fetchFavorites({ page: 1 });
   }
 }
 
@@ -60,4 +99,8 @@ function showRemoveFavoritesButton() {
 
 function currentPageIsFavorites() {
   return document.querySelector('body').classList.contains('js-favorites');
+}
+
+function getLocalStorageFavorites() {
+  return JSON.parse(localStorage.getItem(constants.FAV_KEY)) || {};
 }

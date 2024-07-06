@@ -13,8 +13,6 @@ export function attachExerciseModalListeners() {
 export function attachRemoveFavoriteListeners() {
   const removeFromFavoritesButtons = document.querySelectorAll('.js-delete-favorite');
   removeFromFavoritesButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      removeFromFavorites(null, button.dataset.id, false);
-    });
+    button.addEventListener('click', removeFromFavorites);
   });
 }
