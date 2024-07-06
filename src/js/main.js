@@ -4,7 +4,6 @@ import { fetchCategories } from './fetch-categories';
 import { handleFiltersClick } from './handle-filters-click';
 import { fetchExercises } from './fetch-exercises';
 import { initIconPathObserver } from './icon-path-updater';
-import { attachExerciseModalListeners } from './modal-listener';
 import { calcScrollValue } from './scroll-to-top';
 
 import { setExerciseTitle } from './set-exercise-title';
@@ -48,7 +47,6 @@ searchForm?.addEventListener('submit', async e => {
     category,
     page,
   });
-  attachExerciseModalListeners();
 });
 
 searchForm?.addEventListener('reset', async e => {
@@ -58,7 +56,6 @@ searchForm?.addEventListener('reset', async e => {
     value: catValue,
     page,
   });
-  attachExerciseModalListeners();
 });
 
 content?.addEventListener('click', async e => {
@@ -72,7 +69,6 @@ content?.addEventListener('click', async e => {
     value: catValue,
     page,
   });
-  attachExerciseModalListeners();
   if (window.innerWidth < 768) {
     document.querySelector('.filter-title').scrollIntoView({ behavior: 'smooth' });
   }
