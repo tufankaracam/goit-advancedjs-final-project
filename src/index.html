@@ -1,66 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Get Body in shape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Get Body in shape" />
 
-  <title>Get Body in shape</title>
+    <title>Get Body in shape</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 
-  <link rel="stylesheet" href="./css/styles.css">
-</head>
-<body>
-  <load data-url="partials/header.html" />
-  <load data-url="partials/hero.html" />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <load data-url="partials/header.html" />
+    <load data-url="partials/hero.html" />
 
-  <div class="content-filter-container container">
-    <div class="filter-title-container">
-      <p class="filter-title">Exercises <span class="js-title-slash is-hide">/</span><span class="js-title is-hide"></span></p>
-    </div>
-    <div class="filter-block">
-      <form class="form-search-exersises is-hide" >
-        <input class="input-search-exersises" name="search" type="text" placeholder="Search" />
-        <div class="btn-search-wrapper">
-          <button class="btn-search-exersises js-clear-input" type="reset">
-            <span class="icon-x"></span>
-          </button>
-          <button class="btn-search-exersises" type="submit">
-            <svg class="icon-search" width="18" height="18">
-              <use href="./images/icons.svg#icon-search"></use>
-            </svg>
-          </button>
+    <section class="exercises">
+      <div class="container">
+        <load data-url="partials/exercise-filter.html" />
+        <div class="main-layout">
+          <load data-url="partials/exercises.html" />
+          <load data-url="partials/daily-sport.html" />
         </div>
-      </form>
+      </div>
+    </section>
 
-      <ul class="list-filter-exersises">
-        <li class="item-filter-exersises"><button class="btn-filter active" data-category="Muscles" data-exercise="muscles" type="button">Muscles</button></li>
-        <li class="item-filter-exersises"><button class="btn-filter" data-category="Body parts" data-exercise="bodypart" type="button">Body parts</button></li>
-        <li class="item-filter-exersises"><button class="btn-filter" data-category="Equipment" data-exercise="equipment" type="button">Equipment</button></li>
-      </ul>
-    </div>
-  </div>
+    <load data-url="partials/footer.html" />
+    <load data-url="partials/modal-exercise.html" />
+    <load ="partials/mobile-menu.html" />
+    <load data-url="partials/scroll-to-top.html" />
 
-  <div class="container">
-    <div class="main-layout">
-      <load data-url="partials/exercises.html" />
-      <load data-url="partials/daily-sport.html" />
-    </div>
-  </div>
-  <load data-url="partials/footer.html" />
-  <load data-url="partials/modal-exercise.html" />
-  <load ="partials/mobile-menu.html" />
-  <load data-url="partials/scroll-to-top.html" />
-
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
-    integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
-    crossorigin="anonymous"></script>
-  <script type="module" src="js/main.js"></script>
-  <script type="module" src="js/mobile-menu.js"></script>
-</body>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
+      integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/mobile-menu.js"></script>
+  </body>
 </html>

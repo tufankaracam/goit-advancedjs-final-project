@@ -1,10 +1,14 @@
+.exercises {
+  padding-bottom: 80px;
+}
+
 .content-filter-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 20px;
   width: 100%;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .filter-title-container {
@@ -19,13 +23,13 @@
   color: var(--primary-dark-color);
   font-size: 28px;
   line-height: 1.36;
-  letter-spacing: -0.56px;
+  letter-spacing: -0.16px;
 }
 
 .js-title {
   font-size: 20px;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.4px;
   color: var(--filter-exercise-subtitle-color);
   text-transform: capitalize;
 }
@@ -33,6 +37,7 @@
 .js-title-slash {
   display: inline-block;
   white-space: nowrap;
+  margin-right: 8px;
 }
 
 .js-title.is-hide {
@@ -218,12 +223,17 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 768px) {
+  .exercises {
+    padding-bottom: 100px;
+  }
+
   .content-filter-container {
     gap: 32px;
-    padding-bottom: 32px;
+    margin-bottom: 32px;
   }
 
   .filter-title-container {
@@ -233,7 +243,7 @@
   .filter-title {
     font-size: 44px;
     line-height: 1.09;
-    letter-spacing: -0.88px;
+    letter-spacing: 1.0px;
     white-space: nowrap;
   }
 
@@ -282,10 +292,15 @@
 
   .content {
     gap: 32px 16px;
+    margin-bottom: 32px;
   }
 }
 
 @media screen and (min-width: 1440px) {
+  .exercises {
+    padding-bottom: 132px;
+  }
+
   .content-filter-container {
     gap: 0;
     flex-wrap: nowrap;

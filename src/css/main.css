@@ -20,7 +20,6 @@ body {
   display: flex;
   justify-content: center;
   gap: 8px;
-  padding-top: 32px;
 }
 
 .pagination .button {
@@ -55,10 +54,6 @@ body {
 .social-icon {
   width: 28px;
   height: 28px;
-}
-
-.main-layout {
-  margin-bottom: 80px;
 }
 
 .loader-text {
@@ -100,17 +95,12 @@ body {
     padding-left: 32px;
     padding-right: 32px;
   }
-
-  .main-layout {
-    margin-bottom: 100px;
-  }
 }
 
 @media screen and (min-width: 1440px) {
   .main-layout {
     display: flex;
     gap: 32px;
-    margin-bottom: 132px;
   }
 
   body:not(.favorites) .main-layout {
