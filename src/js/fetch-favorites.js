@@ -2,7 +2,7 @@ import axios from 'axios';
 import { constants } from './constants';
 import { createExerciseMarkup } from './exercise-card-markup';
 import { createPagination } from './create-pagination';
-import { attachExerciseModalListeners } from './modal-listener';
+import { attachExerciseModalListeners, attachRemoveFavoriteListeners } from './modal-listener';
 
 export async function fetchFavorites(params) {
   const { data } = await axios({
@@ -10,7 +10,7 @@ export async function fetchFavorites(params) {
     url: `${constants.DOMEN}/exercises?page=1&limit=10000`,
     responseType: 'json',
   });
-  const perPage = 4;
+  const perPage = window.innerWidth > 1280 ? 10000 : (window.innerWidth < 768 ? 8 : 10);
   const exersises = data.results;
   const favorites = JSON.parse(localStorage.getItem(constants.FAV_KEY)) ?? [];
   if (exersises && favorites && favorites.length) {
@@ -28,8 +28,9 @@ export async function fetchFavorites(params) {
       });
     }
     attachExerciseModalListeners();
+    attachRemoveFavoriteListeners();
   } else {
-    document.querySelector('.content').innerHTML = '';
+    document.querySelector('.content').innerHTML = 'It appears that you haven\'t added any exercises to your favorites yet. To get started, you can add exercises that you like to your favorites for easier access in the future.';
     document.querySelector('.pagination').innerHTML = '';
   }
 }
