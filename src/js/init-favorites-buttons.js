@@ -1,4 +1,5 @@
 import { constants } from './constants';
+import { fetchFavorites } from './fetch-favorites';
 
 let addFavoritesButton;
 let removeFavoritesButton;
@@ -17,23 +18,33 @@ export function initFavoritesButtons() {
   }
 }
 
-function addToFavorites() {
+function addToFavorites(e = null, id = null, toggleButton = true) {
   const favorites = JSON.parse(localStorage.getItem(constants.FAV_KEY)) ?? [];
-  const exerciseId = addFavoritesButton.dataset.id;
+  const exerciseId = id ? id : addFavoritesButton.dataset.id;
   if (exerciseId && !favorites.includes(exerciseId)) {
     favorites.push(addFavoritesButton.dataset.id);
     localStorage.setItem(constants.FAV_KEY, JSON.stringify(favorites));
-    showRemoveFavoritesButton();
+    if (toggleButton) {
+      showRemoveFavoritesButton();
+    }
+    if (currentPageIsFavorites()) {
+      fetchFavorites({ page: 1 });
+    }
   }
 }
 
-function removeFromFavorites() {
+export function removeFromFavorites(e = null, id = null, toggleButton = true) {
   const favorites = JSON.parse(localStorage.getItem(constants.FAV_KEY)) ?? [];
-  const exerciseId = removeFavoritesButton.dataset.id;
+  const exerciseId = id ? id : removeFavoritesButton.dataset.id;
   if (exerciseId && favorites.includes(exerciseId)) {
     const filteredFavorites = favorites.filter(item => item !== exerciseId);
     localStorage.setItem(constants.FAV_KEY, JSON.stringify(filteredFavorites));
-    showAddFavoritesButton();
+    if (toggleButton) {
+      showAddFavoritesButton();
+    }
+    if (currentPageIsFavorites()) {
+      fetchFavorites({ page: 1 });
+    }
   }
 }
 
@@ -45,4 +56,8 @@ function showAddFavoritesButton() {
 function showRemoveFavoritesButton() {
   addFavoritesButton.classList.add('hidden');
   removeFavoritesButton.classList.remove('hidden');
+}
+
+function currentPageIsFavorites() {
+  return document.querySelector('body').classList.contains('js-favorites');
 }

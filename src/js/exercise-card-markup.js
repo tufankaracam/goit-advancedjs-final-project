@@ -16,7 +16,7 @@ export const createExerciseMarkup = (data, isFavorite = false) => {
                 <div class="exercises-header">
                     <div class="exercises-workout-ratio">
                         <div class="exercises-workout">WORKOUT</div>
-                        ${isFavorite ? toggleExercisesCard() : toggleExercisesCard(rating)}
+                        ${isFavorite ? toggleExercisesCard(null, _id) : toggleExercisesCard(rating)}
                     </div>
                     <button class="modal-exercise-info" type="button" id="${_id}">
                         <span>Start</span>
@@ -57,14 +57,14 @@ export const createExerciseMarkup = (data, isFavorite = false) => {
  * @param {number} rating
  * @returns {string}
  */
-function toggleExercisesCard(rating = null) {
+function toggleExercisesCard(rating = null, id = '') {
   if (rating || rating === 0) {
     return `<div class="exercises-ratio">
       <p class="ratio-value">${convertRating(rating)}</p>
       <span class="icon-star ratio-star"></span>
       </div>`;
   }
-  return `<button class="trash-btn js-delete-favorite" type="button">
+  return `<button class="trash-btn js-delete-favorite" type="button" data-id="${id}">
     <span class="icon-star trash-icon"></span>
     </button>`;
 }
