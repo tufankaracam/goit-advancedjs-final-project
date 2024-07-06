@@ -1,9 +1,13 @@
-.hero {
+.hero{
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+
+.hero .container{
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   margin: 0 auto;
-  margin-bottom: 40px;
 }
 
 .hero-text-container {
@@ -98,10 +102,14 @@
 }
 
 @media screen and (min-width: 768px) {
-  .hero {
+  .hero{
+    padding-top: 100px;
+    padding-bottom: 64px;
+  }
+
+  .hero .container{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    margin-bottom: 64px;
   }
 
   .hero-text-container {
@@ -174,7 +182,11 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .hero {
+  .hero{
+    padding-top: 96px;
+  }
+
+  .hero .container{
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto;
     gap: 32px;
