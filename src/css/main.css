@@ -6,6 +6,7 @@ body {
   background-color: var(--primary-light-color);
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
+  position: relative;
 }
 
 .container {
@@ -58,23 +59,22 @@ body {
 
 .loader-text {
   color: var(--primary-dark-color);
-  display: none;
   font-size: 32px;
-  margin-bottom: 32px;
-}
-
-.loader {
-  width: 40px;
-  height: 40px;
-  border-width: 5px;
-  border-style: dashed solid solid dotted;
-  border-color: var(--card-subtitle-color) var(--primary-dark-color) var(--footer-policy-color);
-  border-radius: 50%;
   display: inline-block;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border-width: 5px;
+  border-style: dotted dotted dashed solid;
+  border-color: var(--card-subtitle-color) transparent var(--primary-dark-color) var(--footer-policy-color);
+  border-radius: 50%;
+  display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
   z-index: 10;

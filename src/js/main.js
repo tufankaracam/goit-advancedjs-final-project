@@ -17,6 +17,11 @@ const filter = 'Muscles';
 const page = 1;
 let catValue = '';
 
+window.onload = function () {
+  const loader = document.querySelector('.loader-text');
+  loader.style.display = 'none';
+};
+
 document.addEventListener('DOMContentLoaded', async () => {
   initIconPathObserver();
 

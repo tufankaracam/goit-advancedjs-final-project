@@ -21,7 +21,7 @@
 .quote-container {
   display: inline-flex;
   align-items: flex-start;
-  gap: 18px;
+  gap: 16px;
   flex-shrink: 0;
   position: relative;
   width: 100%;
@@ -49,6 +49,7 @@
   justify-content: space-between;
   margin-bottom: 8px;
   position: relative;
+  width: 243px;
 }
 
 .quote-text {
@@ -131,7 +132,9 @@
 
 .quote-img-tab,
 .quote-img-desk,
-.quote-img-favorite {
+.quote-img-favorite-desk,
+.quote-img-favorite-mobile,
+.quote-img-favorite-tab {
   display: none;
 }
 
@@ -167,6 +170,15 @@
     line-height: 32px;
   }
 
+  .quote-title {
+    width: 574px;
+    margin-bottom: 6px;
+  }
+
+  .quote-text {
+    margin-bottom: 18px;
+  }
+
   .quote-author {
     font-size: 16px;
     line-height: 24px;
@@ -192,13 +204,22 @@
     row-gap: 32px;
     column-gap: 0;
     margin-top: 0;
-    width: 444px;
+    width: 494px;
   }
 
   .quote {
     grid-column: 1;
     grid-row: 1;
     padding: 40px;
+  }
+
+  .quote-title {
+    width: 364px;
+    margin-bottom: 6px;
+  }
+
+  .quote-text {
+    margin-bottom: 8px;
   }
 
   .photo {
