@@ -41,10 +41,12 @@ function popualteSelectors() {
 
 function showOverlay() {
   modalOverlay.classList.remove('hidden');
+  document.body.classList.add('modal-open');
 }
 
 function hideOverlay() {
   document.getElementById('exerciseModal').remove();
+  document.body.classList.remove('modal-open');
   modalOverlay.classList.add('hidden');
   document.removeEventListener('keydown', escapeKeyListener);
   modalOverlay.removeEventListener('click', modalOverlayClickHandler);
