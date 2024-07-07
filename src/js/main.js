@@ -5,7 +5,6 @@ import { handleFiltersClick } from './handle-filters-click';
 import { fetchExercises } from './fetch-exercises';
 import { initIconPathObserver } from './icon-path-updater';
 import { calcScrollValue } from './scroll-to-top';
-
 import { setExerciseTitle } from './set-exercise-title';
 import './handle-email-form';
 
