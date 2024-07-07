@@ -9,6 +9,10 @@ body {
   position: relative;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 .container {
   margin: 0 auto;
   max-width: 375px;
@@ -21,6 +25,7 @@ body {
 }
 
 .content {
+  align-items: flex-start;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
