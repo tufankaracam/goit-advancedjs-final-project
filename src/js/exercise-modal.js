@@ -6,6 +6,8 @@ import { showToast } from './toast';
 
 let modalOverlay;
 let exerciseModal;
+let addFavoritesButton;
+let removeFavoritesButton;
 let addRatingButton;
 
 export async function openModal(exerciseId) {
@@ -19,17 +21,20 @@ export async function openModal(exerciseId) {
       message: 'Error fetching exercise data',
     });
   }
-  renderExcerciseModal(exerciseData);
+  await renderExcerciseModal(exerciseData);
   popualteSelectors(exerciseData);
   showOverlay();
   addExerciseCloseButtonListener();
   addRatingButtonListener(exerciseId);
-  initFavoritesButtons();
+  initFavoritesButtons(exerciseId);
+  modalOverlayClickListener();
 }
 
 function popualteSelectors() {
   modalOverlay = document.getElementById('modalOverlay');
   exerciseModal = document.getElementById('exerciseModal');
+  addFavoritesButton = document.getElementById('addFavoritesButton');
+  removeFavoritesButton = document.getElementById('removeFavoritesButton');
   addRatingButton = document.getElementById('addRatingButton');
 }
 
@@ -54,4 +59,13 @@ function addRatingButtonListener(exerciseId) {
 function showRatingModal(exerciseId) {
   exerciseModal.classList.add('hidden');
   initRatingForm(exerciseId);
+}
+
+function modalOverlayClickListener() {
+  modalOverlay.addEventListener('click', event => {
+    if (event.target === modalOverlay) {
+      modalOverlay.querySelector('#exerciseModal').remove();
+      modalOverlay.classList.add('hidden');
+    }
+  });
 }

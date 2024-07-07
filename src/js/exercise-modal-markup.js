@@ -1,16 +1,20 @@
 export function renderExcerciseModal(exerciseData) {
   const container = document.getElementById('modalOverlay');
   const burnedCalories = `${exerciseData.burnedCalories}/${exerciseData.time} min`;
+  const target = capitalizeFirst(exerciseData.target);
+  const bodyPart = capitalizeFirst(exerciseData.bodyPart);
+  const exerciseTitle = capitalizeFirst(exerciseData.name);
+  const ratingValue = exerciseData.rating.toFixed(1);
   const exerciseModalHTML = `
     <div class="modal-window" id="exerciseModal">
     <span class="close-button icon-x" id="closeExerciseButton"></span>
     <div class="exercise-wrapper">
-      <img src="${exerciseData.gifUrl}" alt="${exerciseData.name}" class="exercise-image">
+      <img src="${exerciseData.gifUrl}" alt="${exerciseTitle}" class="exercise-image">
       <div class="exercise-details">
         <div class="exercise-header">
-          <h2>${exerciseData.name}</h2>
+          <h2 class="exercise-title-js" data-value="${exerciseTitle}">${exerciseTitle}</h2>
           <div class="rating">
-            <span class="rating-value">${exerciseData.rating.toFixed(1)}</span>
+            <span class="rating-value rating-value-js" data-value="${ratingValue}">${ratingValue}</span>
             <span class="icon-star"></span>
             <span class="icon-star"></span>
             <span class="icon-star"></span>
@@ -21,11 +25,11 @@ export function renderExcerciseModal(exerciseData) {
         <ul class="exercise-info">
           <li class="details-column">
             <div class="details-title">Target</div>
-            <div class="details-value">${capitalizeFirst(exerciseData.target)}</div>
+            <div class="details-value details-target-js" data-value="${target}">${target}</div>
           </li>
           <li class="details-column">
             <div class="details-title">Body Part</div>
-            <div class="details-value">${capitalizeFirst(exerciseData.bodyPart)}</div>
+            <div class="details-value details-body-part-js" data-value="${bodyPart}">${bodyPart}</div>
           </li>
           <li class="details-column">
             <div class="details-title">Equipment</div>
@@ -37,7 +41,7 @@ export function renderExcerciseModal(exerciseData) {
           </li>
           <li class="details-column">
             <div class="details-title">Burned Calories</div>
-            <div class="details-value">${burnedCalories}</div>
+            <div class="details-value details-burned-calories-js" data-value="${burnedCalories}">${burnedCalories}</div>
           </li>
         </ul>
         <p class="exercise-description">${exerciseData.description}</p>

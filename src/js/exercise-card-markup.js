@@ -65,7 +65,7 @@ function toggleExercisesCard(rating = null, id = '') {
       </div>`;
   }
   return `<button class="trash-btn js-delete-favorite" type="button" data-id="${id}">
-    <span class="icon-star trash-icon"></span>
+    <span class="icon-trash trash-icon"></span>
     </button>`;
 }
 

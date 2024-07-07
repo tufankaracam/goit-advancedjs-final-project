@@ -7,27 +7,29 @@ export async function handleFiltersClick(method) {
 
   filterButtons.forEach(button => {
     button.addEventListener('click', async () => {
+      if (button.classList.contains('active')) {
+        return;
+      }
+
       const searchForm = document.querySelector('.form-search-exersises');
       searchForm.elements['search'].value = '';
       searchForm.classList.remove('is-hide');
       showSearchForm(false);
       setExerciseTitle('');
 
-      if (!button.classList.contains('active')) {
-        filterButtons.forEach(button => button.classList.remove('active'));
-        button.classList.add('active');
+      filterButtons.forEach(button => button.classList.remove('active'));
+      button.classList.add('active');
 
-        const totalPages = await method({
-          filter: button.dataset.category.replace(' ', '+'),
-          page: 1,
-        });
+      const totalPages = await method({
+        filter: button.dataset.category.replace(' ', '+'),
+        page: 1,
+      });
 
-        createPagination({
-          params: { filter: button.dataset.category.replace(' ', '+'), page: 1 },
-          totalPages,
-          method: method,
-        });
-      }
+      createPagination({
+        params: { filter: button.dataset.category.replace(' ', '+'), page: 1 },
+        totalPages,
+        method: method,
+      });
     });
   });
 }

@@ -6,6 +6,7 @@ body {
   background-color: var(--primary-light-color);
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
+  position: relative;
 }
 
 .container {
@@ -15,12 +16,23 @@ body {
   padding-right: 20px;
 }
 
+.content-wrap {
+  flex: 1;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
 .pagination {
   align-items: center;
   display: flex;
   justify-content: center;
   gap: 8px;
-  padding-top: 32px;
 }
 
 .pagination .button {
@@ -57,29 +69,24 @@ body {
   height: 28px;
 }
 
-.main-layout {
-  margin-bottom: 80px;
-}
-
 .loader-text {
   color: var(--primary-dark-color);
-  display: none;
   font-size: 32px;
-  margin-bottom: 32px;
-}
-
-.loader {
-  width: 40px;
-  height: 40px;
-  border-width: 5px;
-  border-style: dashed solid solid dotted;
-  border-color: var(--card-subtitle-color) var(--primary-dark-color) var(--footer-policy-color);
-  border-radius: 50%;
   display: inline-block;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border-width: 5px;
+  border-style: dotted dotted dashed solid;
+  border-color: var(--card-subtitle-color) transparent var(--primary-dark-color) var(--footer-policy-color);
+  border-radius: 50%;
+  display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
   z-index: 10;
@@ -101,8 +108,9 @@ body {
     padding-right: 32px;
   }
 
-  .main-layout {
-    margin-bottom: 100px;
+  .content {
+    gap: 32px 16px;
+    margin-bottom: 32px;
   }
 }
 
@@ -110,7 +118,6 @@ body {
   .main-layout {
     display: flex;
     gap: 32px;
-    margin-bottom: 132px;
   }
 
   body:not(.favorites) .main-layout {

@@ -108,10 +108,10 @@
 }
 
 .details-column {
-  flex: 1 1 calc(25% - 20px);
   height: 18px;
   display: flex;
   flex-direction: column;
+  flex-basis: content;
   gap: 4px;
 }
 

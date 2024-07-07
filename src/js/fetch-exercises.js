@@ -5,6 +5,7 @@ import { createExerciseMarkup } from './exercise-card-markup';
 import { createPagination } from './create-pagination';
 import { showSearchForm } from './show-search-form';
 import { showToast } from './toast';
+import { attachExerciseModalListeners } from './modal-listener';
 
 export async function fetchExercises(params) {
   const category = document.querySelector('.btn-filter.active').dataset.exercise;
@@ -54,4 +55,5 @@ export async function fetchExercises(params) {
   } finally {
     loader.style.display = 'none';
   }
+  attachExerciseModalListeners();
 }

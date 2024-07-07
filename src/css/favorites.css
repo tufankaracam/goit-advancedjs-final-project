@@ -1,3 +1,7 @@
+.favorites {
+  padding-top: 90px;
+}
+
 .favorites .main-layout {
   display: flex;
   flex-direction: column-reverse;
@@ -8,11 +12,13 @@
   margin-top: 0;
 }
 
-.favorites .quote-img-favorite {
+.favorites .quote-img-favorite-mobile {
   display: block;
 }
 
-.favorites .quote-img-mobile {
+.favorites .quote-img-mobile,
+.quote-img-favorite-desk,
+.quote-img-favorite-tab {
   display: none;
 }
 
@@ -27,10 +33,36 @@
   grid-row: 2;
   order: 2;
   height: auto;
+  flex-direction: column;
 }
 
-.favorites .excercise-text {
+.favorites .daily-excercise .circle-icon {
+  background-color: transparent;
+  color: var(--primary-dark-color);
+  font-size: 20px;
+  padding: 0;
+}
+
+.favorites .daily-excercise .excercise-title {
+  margin-bottom: 6px;
+}
+
+.favorites .daily-excercise .excercise-text {
   display: none;
+}
+.favorites .excercise-sub {
+  margin-bottom: 0;
+}
+
+.favorites .excercise-sub {
+  margin-bottom: 0;
+}
+
+.favorites .empty {
+  font-size: 14px;
+  margin: 0 auto;
+  max-width: 554px;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -39,7 +71,13 @@
     row-gap: 16px;
   }
 
-  .favorites .quote-img-tab {
+  .favorites .quote-img-favorite-tab {
+    display: block;
+  }
+
+  .favorites .quote-img-tab,
+  .favorites .quote-img-favorite-desk,
+  .favorites .quote-img-favorite-mobile {
     display: none;
   }
 
@@ -59,6 +97,16 @@
     grid-column: 1;
     grid-row: 2;
     order: 2;
+    padding: 25px;
+  }
+
+  .favorites .content {
+    margin-bottom: 0;
+  }
+
+  .favorites .empty {
+    font-size: 18px;
+    padding: 92px 0 185px 0;
   }
 }
 
@@ -69,9 +117,25 @@
 
   .favorites .daily-sport-section {
     column-gap: 16px;
+    width: 494px;
   }
 
-  .favorites .quote-img-desk {
+  .favorites .quote-img-favorite-desk {
+    display: block;
+  }
+
+  .favorites .quote-img-desk,
+  .favorites .quote-img-favorite-mobile,
+  .favorites .quote-img-favorite-tab {
     display: none;
+  }
+
+  .favorites .content {
+    height: 100%;
+  }
+
+  .favorites .empty {
+    height: 100%;
+    padding-top: 115px;
   }
 }
