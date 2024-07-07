@@ -1,5 +1,6 @@
 import { constants } from './constants';
 import { fetchFavorites } from './fetch-favorites';
+import { showToast } from './toast';
 
 let addFavoritesButton;
 let removeFavoritesButton;
@@ -44,6 +45,7 @@ function storeExerciseData(exerciseData) {
   let favorites = getLocalStorageFavorites();
   favorites[exerciseData._id] = exerciseData;
   localStorage.setItem('favorites', JSON.stringify(favorites));
+  displayMessage('success', exerciseData.name, 'Added to favorites');
 }
 
 function getExerciseDataById(id) {
@@ -68,9 +70,11 @@ function removeFromFavoritesModalListner() {
   let favorites = getLocalStorageFavorites();
   const exerciseId = removeFavoritesButton.dataset.id;
   if (favorites[exerciseId]) {
+    const exerciseName = favorites[exerciseId].name;
     delete favorites[exerciseId];
     localStorage.setItem('favorites', JSON.stringify(favorites));
     showAddFavoritesButton();
+    displayMessage('info', exerciseName, 'Removed from favorites');
   }
   if (currentPageIsFavorites()) {
     fetchFavorites({ page: 1 });
@@ -103,4 +107,12 @@ function currentPageIsFavorites() {
 
 function getLocalStorageFavorites() {
   return JSON.parse(localStorage.getItem(constants.FAV_KEY)) || {};
+}
+
+function displayMessage(type, title, message) {
+  showToast({
+    type,
+    title: title || '',
+    message,
+  });
 }
