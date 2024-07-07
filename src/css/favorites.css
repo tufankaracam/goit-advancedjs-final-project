@@ -138,4 +138,16 @@
     height: 100%;
     padding-top: 115px;
   }
+
+  .favorites .content-wrap {
+    max-width: 850px;
+  }
+
+  .favorites .exercises-container {
+    max-width: 404px;
+  }
+
+  .favorites .exercises-info-value.target {
+    max-width: 48px;
+  }
 }
