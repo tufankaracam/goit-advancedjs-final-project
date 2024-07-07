@@ -184,7 +184,8 @@
   height: 24px;
 }
 
-.btn-filter::after {
+.btn-filter:after,
+.breadcrumb:after {
   content: '';
   display: flex;
   justify-content: center;
@@ -203,7 +204,8 @@
     opacity 0.3s ease-in-out;
 }
 
-.btn-filter:hover::after {
+.btn-filter:hover:after,
+.breadcrumb.clickable:hover:after {
   opacity: 1;
   transform: scale(1);
 }
@@ -216,6 +218,17 @@
     opacity: 1;
     transform: scale(1);
   }
+}
+
+.breadcrumb {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  position: relative;
+}
+
+.breadcrumb:not(.clickable) {
+  cursor: auto;
 }
 
 @media screen and (min-width: 768px) {
