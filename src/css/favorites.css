@@ -1,3 +1,7 @@
+.favorites {
+  padding-top: 90px;
+}
+
 .favorites .main-layout {
   display: flex;
   flex-direction: column-reverse;
