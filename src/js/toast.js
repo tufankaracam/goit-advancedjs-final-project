@@ -17,12 +17,21 @@ export function showToast({ type, title, message, position = 'topRight' }) {
         position,
       });
       break;
-    case 'info':
+    case 'warning':
       iziToast.warning({
         title,
         message,
         position,
       });
       break;
+    case 'info':
+      iziToast.info({
+        title,
+        message,
+        position,
+      });
+      break;
+    default:
+      console.warn('Unknown toast type:', type);
   }
 }
