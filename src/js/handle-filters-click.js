@@ -4,6 +4,7 @@ import { setExerciseTitle } from './set-exercise-title';
 
 export async function handleFiltersClick(method) {
   const filterButtons = Array.from(document.querySelectorAll('.btn-filter'));
+  const breadcrumb = document.querySelector('.breadcrumb');
 
   filterButtons.forEach(button => {
     button.addEventListener('click', async () => {
@@ -12,16 +13,19 @@ export async function handleFiltersClick(method) {
       }
 
       const searchForm = document.querySelector('.form-search-exersises');
+      const filter = button.dataset.category.replace(' ', '+');
       searchForm.elements['search'].value = '';
       searchForm.classList.remove('is-hide');
       showSearchForm(false);
       setExerciseTitle('');
+      breadcrumb.classList.remove('clickable');
+      breadcrumb.dataset.category = filter;
 
       filterButtons.forEach(button => button.classList.remove('active'));
       button.classList.add('active');
 
       const totalPages = await method({
-        filter: button.dataset.category.replace(' ', '+'),
+        filter,
         page: 1,
       });
 

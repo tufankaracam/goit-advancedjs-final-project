@@ -5,28 +5,25 @@ import { handleFiltersClick } from './handle-filters-click';
 import { fetchExercises } from './fetch-exercises';
 import { initIconPathObserver } from './icon-path-updater';
 import { calcScrollValue } from './scroll-to-top';
+import { showSearchForm } from './show-search-form';
 import { setExerciseTitle } from './set-exercise-title';
 import './handle-email-form';
 
 const searchForm = document.querySelector('.form-search-exersises');
 const content = document.querySelector('.content');
 const scrollProgress = document.querySelector('.scroll-to-top');
+const breadcrumb = document.querySelector('.breadcrumb');
 
-const filter = 'Muscles';
+let filter = 'Muscles';
 const page = 1;
 let catValue = '';
 
-window.onload = function () {
+window.onload = () => {
   const loader = document.querySelector('.loader-text');
   loader.style.display = 'none';
 };
 
-document.addEventListener('DOMContentLoaded', async () => {
-  initIconPathObserver();
-
-  fetchAndSetQuote();
-  handleFiltersClick(fetchCategories);
-
+async function fetchCategoriesSetPagination() {
   const totalPages = await fetchCategories({
     filter,
     page,
@@ -39,6 +36,27 @@ document.addEventListener('DOMContentLoaded', async () => {
       method: fetchCategories,
     });
   }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  initIconPathObserver();
+
+  fetchAndSetQuote();
+  handleFiltersClick(fetchCategories);
+  fetchCategoriesSetPagination();
+
+  breadcrumb?.addEventListener('click', e => {
+    if (!breadcrumb.classList.contains('clickable')) {
+      return;
+    }
+
+    filter = breadcrumb.dataset.category;
+
+    fetchCategoriesSetPagination();
+    showSearchForm(false);
+    setExerciseTitle('');
+    breadcrumb.classList.remove('clickable');
+  });
 });
 
 searchForm?.addEventListener('submit', async e => {
@@ -69,6 +87,7 @@ content?.addEventListener('click', async e => {
   catValue = item.getAttribute('name');
 
   setExerciseTitle(catValue);
+  breadcrumb?.classList.add('clickable');
   await fetchExercises({
     value: catValue,
     page,
