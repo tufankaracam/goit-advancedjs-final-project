@@ -58,6 +58,13 @@
   margin-bottom: 0;
 }
 
+.favorites .empty {
+  font-size: 14px;
+  margin: 0 auto;
+  max-width: 554px;
+  text-align: center;
+}
+
 @media screen and (min-width: 768px) {
   .favorites .daily-sport-section {
     grid-template-columns: 1fr 1fr;
@@ -92,6 +99,15 @@
     order: 2;
     padding: 25px;
   }
+
+  .favorites .content {
+    margin-bottom: 0;
+  }
+
+  .favorites .empty {
+    font-size: 18px;
+    padding: 92px 0 185px 0;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -112,5 +128,14 @@
   .favorites .quote-img-favorite-mobile,
   .favorites .quote-img-favorite-tab {
     display: none;
+  }
+
+  .favorites .content {
+    height: 100%;
+  }
+
+  .favorites .empty {
+    height: 100%;
+    padding-top: 115px;
   }
 }

@@ -24,7 +24,10 @@ export function fetchFavorites(params) {
     attachRemoveFavoriteListeners();
   } else {
     document.querySelector('.content').innerHTML =
-      "It appears that you haven't added any exercises to your favorites yet. To get started, you can add exercises that you like to your favorites for easier access in the future.";
+      `<p class="empty">
+        It appears that you haven't added any exercises to your favorites yet.
+        To get started, you can add exercises that you like to your favorites for easier access in the future.
+      </p>`;
     document.querySelector('.pagination').innerHTML = '';
   }
 }

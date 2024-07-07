@@ -16,6 +16,18 @@ body {
   padding-right: 20px;
 }
 
+.content-wrap {
+  flex: 1;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
 .pagination {
   align-items: center;
   display: flex;
@@ -94,6 +106,11 @@ body {
     max-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
+  }
+
+  .content {
+    gap: 32px 16px;
+    margin-bottom: 32px;
   }
 }
 

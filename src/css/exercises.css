@@ -212,18 +212,10 @@
   color: var(--primary-dark-color);
   cursor: auto;
 
-  &::after {
+  &:after {
     opacity: 1;
     transform: scale(1);
   }
-}
-
-.content {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -289,11 +281,6 @@
     font-size: 16px;
     line-height: 1.5;
   }
-
-  .content {
-    gap: 32px 16px;
-    margin-bottom: 32px;
-  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -324,10 +311,5 @@
 
   .item-filter-exersises {
     flex-shrink: 0;
-  }
-
-  .content {
-    max-width: 902px;
-    width: 100%;
   }
 }
