@@ -132,6 +132,8 @@
 
   .favorites .content {
     height: 100%;
+    max-height: 670px;
+    overflow-y: scroll;
   }
 
   .favorites .empty {
