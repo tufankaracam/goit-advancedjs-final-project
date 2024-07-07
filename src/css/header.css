@@ -77,7 +77,7 @@
   height: 52px;
   border-radius: 60px;
   background-color: var(--primary-dark-color);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, width 0.3s ease;
 }
 
 .toggle-btn {
