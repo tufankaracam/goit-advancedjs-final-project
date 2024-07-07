@@ -24,6 +24,9 @@
   width: calc(100% - 40px);
   padding: 40px 20px;
   border-radius: 20px;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .close-button {
