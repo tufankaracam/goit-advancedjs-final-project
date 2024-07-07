@@ -3,7 +3,8 @@ export function setIconPaths(container) {
   const basePath = isDeployed ? '/goit-advancedjs-final-project' : '';
   container.querySelectorAll('use[href*="images/icons.svg"]').forEach(icon => {
     const currentHref = icon.getAttribute('href');
-    icon.setAttribute('href', `${basePath}${currentHref}`);
+    const [url, id] = currentHref.split('#');
+    icon.setAttribute('href', `${basePath}${url}?v=${new Date().getTime()}#${id}`);
   });
 }
 
