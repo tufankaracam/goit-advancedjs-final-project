@@ -1,7 +1,7 @@
 import { fetchFavorites } from './fetch-favorites';
 import { fetchAndSetQuote } from './fetch-and-set-quote';
 
-window.onload = function () {
+window.onload = () => {
   const loader = document.querySelector('.loader-text');
   loader.style.display = 'none';
 };
